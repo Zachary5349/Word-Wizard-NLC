@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_sound_bright_win_bonus_level_up_92958.mp3-565e749923ceb84ce7e99efe1de75931.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_multimedia_game_sound_bright_win_bonus_level_up_92958.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_sound_bright_win_bonus_level_up_92958.mp3-565e749923ceb84ce7e99efe1de75931.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

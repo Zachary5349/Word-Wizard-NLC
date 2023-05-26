@@ -1,0 +1,113 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://ABCassets/playersiderun1.png" type="Texture" id=1]
+[ext_resource path="res://ABCassets/player1side.png" type="Texture" id=2]
+[ext_resource path="res://ABCassets/player1atk.png" type="Texture" id=3]
+[ext_resource path="res://ABCassets/player1front.png" type="Texture" id=4]
+[ext_resource path="res://ABCscripts/Wizard.gd" type="Script" id=5]
+[ext_resource path="res://Assets/player_atk_ani/7.png" type="Texture" id=6]
+[ext_resource path="res://Assets/player_atk_ani/8.png" type="Texture" id=7]
+[ext_resource path="res://Assets/player_atk_ani/9.png" type="Texture" id=8]
+[ext_resource path="res://Assets/player_atk_ani/6.png" type="Texture" id=9]
+[ext_resource path="res://Assets/player_ani/hurt3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/player_atk_ani/5.png" type="Texture" id=11]
+[ext_resource path="res://Assets/player_ani/hurt2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/player_ani/player1side.png" type="Texture" id=13]
+[ext_resource path="res://Assets/player_ani/player2frontrunning2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/player_ani/playersiderun2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/player_ani/player1frontrunning1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/player_ani/playerbackrun1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/player_ani/player1back.png" type="Texture" id=18]
+[ext_resource path="res://Assets/player_ani/player1front.png" type="Texture" id=19]
+[ext_resource path="res://Assets/player_ani/playerbackrun2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/player_ani/player1frontrunning2.png" type="Texture" id=21]
+[ext_resource path="res://Assets/player_ani/playersiderun1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/player_ani/player2front.png" type="Texture" id=23]
+[ext_resource path="res://Assets/player_atk_ani/2.png" type="Texture" id=24]
+[ext_resource path="res://Assets/player_atk_ani/1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/player_atk_ani/4.png" type="Texture" id=26]
+[ext_resource path="res://Assets/player_ani/player2frontrunning1.png" type="Texture" id=27]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 18.9999
+height = 6.00001
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "waterblast",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 26 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "atk",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "backidle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "backrun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "frontidle",
+"speed": 0.13
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 21 ), ExtResource( 27 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "frontrun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "sideidle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "siderun",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 63, 184 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 2, 1 )
+scale = Vector2( 1.27344, 1.19531 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+frames = SubResource( 1 )
+animation = "sideidle"
+playing = true
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

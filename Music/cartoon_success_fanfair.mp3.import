@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cartoon_success_fanfair.mp3-1d8dc80b49007f4e94a604458301dd38.mp3str"
+
+[deps]
+
+source_file="res://Music/cartoon_success_fanfair.mp3"
+dest_files=[ "res://.import/cartoon_success_fanfair.mp3-1d8dc80b49007f4e94a604458301dd38.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

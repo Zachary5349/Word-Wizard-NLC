@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_warfare_bomb_drop_jet_plane_hit_explode_close_sound_of_plane_above_short_001_48048.mp3-cef886607206a939b8a4a6cf85890a96.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_warfare_bomb_drop_jet_plane_hit_explode_close_sound_of_plane_above_short_001_48048.mp3"
+dest_files=[ "res://.import/zapsplat_warfare_bomb_drop_jet_plane_hit_explode_close_sound_of_plane_above_short_001_48048.mp3-cef886607206a939b8a4a6cf85890a96.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

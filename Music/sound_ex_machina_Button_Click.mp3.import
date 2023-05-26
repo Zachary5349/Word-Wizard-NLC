@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sound_ex_machina_Button_Click.mp3-c0832be7f80d6a6775c82cfb1ab9b3e7.mp3str"
+
+[deps]
+
+source_file="res://Music/sound_ex_machina_Button_Click.mp3"
+dest_files=[ "res://.import/sound_ex_machina_Button_Click.mp3-c0832be7f80d6a6775c82cfb1ab9b3e7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_sound_glissando_bright_bells_fast_win_award_92959.mp3-d7a600501cc3182a58c4bfa6ee0882f1.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_multimedia_game_sound_glissando_bright_bells_fast_win_award_92959.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_sound_glissando_bright_bells_fast_win_award_92959.mp3-d7a600501cc3182a58c4bfa6ee0882f1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

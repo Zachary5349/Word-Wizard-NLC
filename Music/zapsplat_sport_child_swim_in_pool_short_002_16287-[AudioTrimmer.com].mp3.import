@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_sport_child_swim_in_pool_short_002_16287-[AudioTrimmer.com].mp3-a65ef38af075cc023a23930fdc4b24a7.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_sport_child_swim_in_pool_short_002_16287-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/zapsplat_sport_child_swim_in_pool_short_002_16287-[AudioTrimmer.com].mp3-a65ef38af075cc023a23930fdc4b24a7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

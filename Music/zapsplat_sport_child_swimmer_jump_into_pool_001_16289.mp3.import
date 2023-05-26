@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_sport_child_swimmer_jump_into_pool_001_16289.mp3-ff97cff0b0801b2081b2f50bf4c68769.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_sport_child_swimmer_jump_into_pool_001_16289.mp3"
+dest_files=[ "res://.import/zapsplat_sport_child_swimmer_jump_into_pool_001_16289.mp3-ff97cff0b0801b2081b2f50bf4c68769.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

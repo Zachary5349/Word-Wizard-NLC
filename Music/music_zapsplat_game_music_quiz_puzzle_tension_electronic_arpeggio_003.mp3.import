@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_zapsplat_game_music_quiz_puzzle_tension_electronic_arpeggio_003.mp3-080e13976e115a64f0abbcb62bee257a.mp3str"
+
+[deps]
+
+source_file="res://Music/music_zapsplat_game_music_quiz_puzzle_tension_electronic_arpeggio_003.mp3"
+dest_files=[ "res://.import/music_zapsplat_game_music_quiz_puzzle_tension_electronic_arpeggio_003.mp3-080e13976e115a64f0abbcb62bee257a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

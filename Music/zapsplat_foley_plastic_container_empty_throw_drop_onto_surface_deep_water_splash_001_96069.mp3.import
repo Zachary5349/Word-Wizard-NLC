@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_plastic_container_empty_throw_drop_onto_surface_deep_water_splash_001_96069.mp3-8fa1fda2196014092959d7f4882e6fa2.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_foley_plastic_container_empty_throw_drop_onto_surface_deep_water_splash_001_96069.mp3"
+dest_files=[ "res://.import/zapsplat_foley_plastic_container_empty_throw_drop_onto_surface_deep_water_splash_001_96069.mp3-8fa1fda2196014092959d7f4882e6fa2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

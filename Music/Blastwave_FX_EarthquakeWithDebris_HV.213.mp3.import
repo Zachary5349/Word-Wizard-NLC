@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Blastwave_FX_EarthquakeWithDebris_HV.213.mp3-aaf2ebd1af9c3c59aac5fd574691c758.mp3str"
+
+[deps]
+
+source_file="res://Music/Blastwave_FX_EarthquakeWithDebris_HV.213.mp3"
+dest_files=[ "res://.import/Blastwave_FX_EarthquakeWithDebris_HV.213.mp3-aaf2ebd1af9c3c59aac5fd574691c758.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

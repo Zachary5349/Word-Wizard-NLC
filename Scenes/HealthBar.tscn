@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/HealthBarBehind.png" type="Texture" id=1]
+[ext_resource path="res://assets/HealthBarFront.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -680, -85 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -698, -85 ), Vector2( -688, -85 ), Vector2( -708, -85 ), Vector2( -698, -85 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "low"
+length = 0.33
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0963223, 0.236253, 0.328898 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.5, 5.0, -5.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "shaky"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.5, -2.5, 0.0 ]
+}
+
+[node name="SFX" type="TextureProgress"]
+margin_left = -680.0
+margin_top = -85.0
+margin_right = 1150.0
+margin_bottom = 175.0
+rect_scale = Vector2( 0.15, 0.15 )
+rect_pivot_offset = Vector2( 800, 100 )
+value = 100.0
+texture_progress = ExtResource( 1 )
+tint_progress = Color( 1, 0, 0, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 501
+stretch_margin_right = 220
+stretch_margin_bottom = 100
+script = ExtResource( 4 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_right = 1860.0
+margin_bottom = 260.0
+rect_rotation = -360.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0, 0, 0, 0.329412 )
+tint_progress = Color( 0.14902, 0.788235, 0, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 501
+stretch_margin_right = 220
+stretch_margin_bottom = 100
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+anims/RESET = SubResource( 4 )
+anims/hit = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/low = SubResource( 3 )
+anims/shaky = SubResource( 2 )

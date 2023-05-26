@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.5
+glow_bicubic_upscale = true
+
+[node name="Line2D" type="Line2D"]
+self_modulate = Color( 100, 100, 100, 1 )
+width = 2.5
+default_color = Color( 0, 0.929412, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

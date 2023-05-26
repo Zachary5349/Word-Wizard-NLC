@@ -1,0 +1,158 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/title/ctrls.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Controls.gd" type="Script" id=3]
+[ext_resource path="res://Assets/backb.png" type="Texture" id=4]
+[ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+size = 50
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "backd"
+tracks/0/type = "value"
+tracks/0/path = NodePath("back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.768627, 0.768627, 0.768627, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "backhover"
+tracks/0/type = "value"
+tracks/0/path = NodePath("back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.87451, 0, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 173.0
+margin_top = 86.0
+margin_right = 213.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 1 )
+text = "up"
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 317.0
+margin_top = 147.0
+margin_right = 406.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 1 )
+text = "click"
+
+[node name="Label5" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.0
+margin_top = 16.0
+margin_right = 144.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 17 )
+text = "controls"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 82.0
+margin_top = 280.0
+margin_right = 154.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "left"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 245.0
+margin_top = 280.0
+margin_right = 335.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "right"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 164.0
+margin_top = 280.0
+margin_right = 236.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "down"
+
+[node name="back" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 311.0
+margin_right = 125.0
+margin_bottom = 381.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/focus = SubResource( 15 )
+text = "Back"
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 18 )
+anims/backd = SubResource( 19 )
+anims/backhover = SubResource( 20 )
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -30.0
+
+[connection signal="button_down" from="back" to="." method="_on_back_button_down"]
+[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

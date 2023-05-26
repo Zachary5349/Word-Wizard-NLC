@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_warfare_gun_bullet_whizz_and_hit_shallow_water_008_92843.mp3-d66f18dcbac5c8eb743c2f8e84648a7e.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_warfare_gun_bullet_whizz_and_hit_shallow_water_008_92843.mp3"
+dest_files=[ "res://.import/zapsplat_warfare_gun_bullet_whizz_and_hit_shallow_water_008_92843.mp3-d66f18dcbac5c8eb743c2f8e84648a7e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

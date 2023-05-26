@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_zapsplat_game_music_childrens_calm_slow_arpeggio_plucked_soft_warm_caring_005.mp3-b9f4006491e691ff8daa6f1725d1c68b.mp3str"
+
+[deps]
+
+source_file="res://Music/music_zapsplat_game_music_childrens_calm_slow_arpeggio_plucked_soft_warm_caring_005.mp3"
+dest_files=[ "res://.import/music_zapsplat_game_music_childrens_calm_slow_arpeggio_plucked_soft_warm_caring_005.mp3-b9f4006491e691ff8daa6f1725d1c68b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

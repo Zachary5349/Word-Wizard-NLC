@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_orlamusic_Epic+001.mp3-5ba6c6b742524d75325640390dccbee1.mp3str"
+
+[deps]
+
+source_file="res://Music/music_orlamusic_Epic+001.mp3"
+dest_files=[ "res://.import/music_orlamusic_Epic+001.mp3-5ba6c6b742524d75325640390dccbee1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

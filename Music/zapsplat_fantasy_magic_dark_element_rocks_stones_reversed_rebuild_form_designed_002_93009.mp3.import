@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_fantasy_magic_dark_element_rocks_stones_reversed_rebuild_form_designed_002_93009.mp3-c2b54306de1c1f948505aecf1201fb03.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_fantasy_magic_dark_element_rocks_stones_reversed_rebuild_form_designed_002_93009.mp3"
+dest_files=[ "res://.import/zapsplat_fantasy_magic_dark_element_rocks_stones_reversed_rebuild_form_designed_002_93009.mp3-c2b54306de1c1f948505aecf1201fb03.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

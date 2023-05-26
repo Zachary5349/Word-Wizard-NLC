@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ABCassets/blast_2.png" type="Texture" id=1]
+[ext_resource path="res://ABCassets/blast_0.png" type="Texture" id=2]
+[ext_resource path="res://ABCassets/blast_1.png" type="Texture" id=3]
+[ext_resource path="res://ABCscripts/bullet.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.00001
+height = 5.99998
+
+[node name="RigidBody2D" type="KinematicBody2D"]
+position = Vector2( 155, 67 )
+rotation = 0.785398
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.212006, 0.0484619 )
+rotation = 0.785398
+scale = Vector2( 0.2, 0.4 )
+frames = SubResource( 1 )
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.52588e-05, -1.52588e-05 )
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rotation = 0.785398
+scale = Vector2( 0.295272, 0.550754 )
+
+[node name="aiming_area" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="aiming_area"]
+visible = false
+position = Vector2( 26.87, -16.9706 )
+polygon = PoolVector2Array( -24.0416, 14.1421, 13.435, -395.273, 333.047, -86.9741 )

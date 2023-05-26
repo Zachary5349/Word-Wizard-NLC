@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_sound_design_cinematic_drone_airy_epic_glorious_with_dark_hints_53367.mp3-e7dbff24bb7a9b0fac4c5417cb9c8b2e.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_sound_design_cinematic_drone_airy_epic_glorious_with_dark_hints_53367.mp3"
+dest_files=[ "res://.import/zapsplat_sound_design_cinematic_drone_airy_epic_glorious_with_dark_hints_53367.mp3-e7dbff24bb7a9b0fac4c5417cb9c8b2e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

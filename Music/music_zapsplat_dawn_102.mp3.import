@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_zapsplat_dawn_102.mp3-455c79c37b684300c49dad90a030d470.mp3str"
+
+[deps]
+
+source_file="res://Music/music_zapsplat_dawn_102.mp3"
+dest_files=[ "res://.import/music_zapsplat_dawn_102.mp3-455c79c37b684300c49dad90a030d470.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

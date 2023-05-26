@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/west_wolf_Beach_Sea_Waves.mp3-12e5748310258e8c7041544aee28f1ed.mp3str"
+
+[deps]
+
+source_file="res://Music/west_wolf_Beach_Sea_Waves.mp3"
+dest_files=[ "res://.import/west_wolf_Beach_Sea_Waves.mp3-12e5748310258e8c7041544aee28f1ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

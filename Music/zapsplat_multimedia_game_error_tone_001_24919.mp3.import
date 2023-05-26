@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_error_tone_001_24919.mp3-3d2ff96fcf78b6eb022c2c33ad66ca38.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_multimedia_game_error_tone_001_24919.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_error_tone_001_24919.mp3-3d2ff96fcf78b6eb022c2c33ad66ca38.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

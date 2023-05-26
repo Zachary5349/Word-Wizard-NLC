@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/water_blast/blast_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/water_blast/blast_0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/water_blast/blast_2.png" type="Texture" id=3]
+[ext_resource path="res://ABCassets/fire1.png" type="Texture" id=4]
+[ext_resource path="res://ABCassets/fire3.png" type="Texture" id=5]
+[ext_resource path="res://ABCassets/fire4.png" type="Texture" id=6]
+[ext_resource path="res://ABCassets/qweqwe.png" type="Texture" id=7]
+[ext_resource path="res://ABCassets/fire2.png" type="Texture" id=8]
+[ext_resource path="res://ABCscenes/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ABCextra/SpaceMono-Bold.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fireball",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 45.1075
+height = 5.71726
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 23.0
+height = 20.0
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Enemy" type="KinematicBody2D" parent="Area2D" instance=ExtResource( 9 )]
+visible = false
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Enemy2" type="KinematicBody2D" parent="Area2D"]
+scale = Vector2( 0.75, 0.75 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D/Enemy2"]
+scale = Vector2( 2.31187, 1.96163 )
+frames = SubResource( 6 )
+animation = "New Anim"
+frame = 2
+playing = true
+
+[node name="CPUParticles2D9" type="CPUParticles2D" parent="Area2D/Enemy2/AnimatedSprite"]
+visible = false
+position = Vector2( 0.474182, 0.0439911 )
+amount = 150
+lifetime = 2.0
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2( -25, 0 )
+initial_velocity = 1.0
+radial_accel = -35.14
+radial_accel_random = 1.0
+scale_amount = 0.1
+color = Color( 0.823529, 0.243137, 0.243137, 1 )
+
+[node name="CPUParticles2D10" type="CPUParticles2D" parent="Area2D/Enemy2/AnimatedSprite"]
+visible = false
+position = Vector2( -11.485, -0.713425 )
+amount = 150
+lifetime = 2.0
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2( -25, 0 )
+initial_velocity = 1.0
+radial_accel = -35.14
+radial_accel_random = 1.0
+scale_amount = 0.1
+color = Color( 0.505882, 0.0196078, 0.0196078, 1 )
+
+[node name="CPUParticles2D11" type="CPUParticles2D" parent="Area2D/Enemy2/AnimatedSprite"]
+visible = false
+position = Vector2( 1.96375, 0.724869 )
+amount = 150
+lifetime = 2.0
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2( -25, 0 )
+initial_velocity = 1.0
+radial_accel = -35.14
+radial_accel_random = 1.0
+scale_amount = 0.1
+color = Color( 0.972549, 0.92549, 0.92549, 1 )
+
+[node name="CPUParticles2D12" type="CPUParticles2D" parent="Area2D/Enemy2/AnimatedSprite"]
+visible = false
+position = Vector2( -11.4851, -0.71344 )
+amount = 150
+lifetime = 2.0
+texture = ExtResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2( -25, 0 )
+initial_velocity = 1.0
+radial_accel = -35.14
+radial_accel_random = 1.0
+scale_amount = 0.1
+color = Color( 0, 0, 0, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Area2D/Enemy2"]
+margin_left = 179.566
+margin_top = -11.535
+margin_right = 435.566
+margin_bottom = 35.465
+rect_scale = Vector2( -1.53408, -1.04245 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/line_separation = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Type this![/center]"
+text = "Type this!"
+scroll_active = false
+
+[node name="transtimer" type="Timer" parent="Area2D/Enemy2"]
+wait_time = 70.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Enemy2"]
+position = Vector2( 21.0265, 0.225803 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -1, 2 )
+rotation = 1.5708
+shape = SubResource( 8 )
+
+[connection signal="timeout" from="Area2D/Enemy2/transtimer" to="Area2D/Enemy2" method="_on_transtimer_timeout"]

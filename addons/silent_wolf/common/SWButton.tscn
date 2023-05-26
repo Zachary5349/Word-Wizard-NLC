@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/title/lb.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="SWButton" type="Button"]
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+text = "Sample text"
+icon = ExtResource( 1 )
+icon_align = 1

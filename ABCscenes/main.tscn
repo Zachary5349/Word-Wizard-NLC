@@ -1,0 +1,1263 @@
+[gd_scene load_steps=64 format=2]
+
+[ext_resource path="res://ABCscripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://ABCscripts/DifficultyTimer.gd" type="Script" id=2]
+[ext_resource path="res://ABCscenes/Wizard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ABCassets/volc.png" type="Texture" id=4]
+[ext_resource path="res://ABCassets/0.png" type="Texture" id=5]
+[ext_resource path="res://ABCassets/3.png" type="Texture" id=6]
+[ext_resource path="res://ABCassets/4.png" type="Texture" id=7]
+[ext_resource path="res://ABCassets/dmg_barfront (1).png" type="Texture" id=8]
+[ext_resource path="res://ABCassets/phase2/2.png" type="Texture" id=9]
+[ext_resource path="res://ABCassets/phase2/3.png" type="Texture" id=10]
+[ext_resource path="res://ABCassets/phase2/4.png" type="Texture" id=11]
+[ext_resource path="res://ABCassets/HealthBarBehind.png" type="Texture" id=12]
+[ext_resource path="res://ABCassets/1.png" type="Texture" id=13]
+[ext_resource path="res://ABCassets/qwe.png" type="Texture" id=14]
+[ext_resource path="res://ABCassets/bgfhfg.png" type="Texture" id=15]
+[ext_resource path="res://ABCassets/HealthBarFront.png" type="Texture" id=16]
+[ext_resource path="res://ABCassets/2.png" type="Texture" id=17]
+[ext_resource path="res://ABCassets/5.png" type="Texture" id=18]
+[ext_resource path="res://ABCassets/phase2/5.png" type="Texture" id=19]
+[ext_resource path="res://ABCassets/27.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Wizard.tscn" type="PackedScene" id=21]
+[ext_resource path="res://ABCassets/Fblapix-Regular.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://ABCextra/DK Samhain.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://ABCassets/phase2/0.png" type="Texture" id=26]
+[ext_resource path="res://ABCassets/phase2/1.png" type="Texture" id=27]
+[ext_resource path="res://Music/music_orlamusic_Epic+001.mp3" type="AudioStream" id=28]
+[ext_resource path="res://Music/music_orlamusic_Epic+010.mp3" type="AudioStream" id=29]
+
+[sub_resource type="Curve2D" id=36]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 505, 138.739, 245.253, -146.263, -245.253, 146.263, 85, 180.925 )
+}
+
+[sub_resource type="Curve2D" id=37]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 507, 160.87, 300.378, -89.0877, -300.378, 89.0877, 84, 181.617 )
+}
+
+[sub_resource type="Curve2D" id=38]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 504, 181.617, 0, 0, 0, 0, 84, 181.617 )
+}
+
+[sub_resource type="Curve2D" id=39]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 506, 200.981, 313.146, 89.1129, -313.146, -89.1129, 83, 182.308 )
+}
+
+[sub_resource type="Curve2D" id=40]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 505, 229.336, 221.81, 161.885, -221.81, -161.885, 86, 184.383 )
+}
+
+[sub_resource type="CircleShape2D" id=35]
+radius = 21.095
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 26 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Environment" id=23]
+background_mode = 4
+ambient_light_color = Color( 0.258824, 0.254902, 0.254902, 1 )
+fog_enabled = true
+fog_color = Color( 0, 0.262745, 0.521569, 1 )
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/3 = false
+glow_levels/5 = false
+glow_intensity = 0.38
+glow_hdr_threshold = 1.27
+glow_hdr_luminance_cap = 13.21
+
+[sub_resource type="DynamicFont" id=2]
+size = 140
+outline_color = Color( 0.894118, 0.239216, 0.239216, 1 )
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFontData" id=33]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=34]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 33 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+extra_spacing_bottom = -2
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 60
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 25 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dragon1:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 200.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dragon1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 200, -1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation2Text1:custom_fonts/normal_font:outline_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation2Text1:custom_colors/default_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.360784, 0.0823529, 0.0823529, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../CanvasLayer/Animation1Button:custom_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.458824, 0.180392, 0.180392, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Dragon1:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.458824, 0.0196078, 0, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../CanvasLayer/Animation2Button2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../CanvasLayer/Animation2Button2:custom_colors/font_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.313726, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Dragon2:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 200, -1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../CanvasLayer/ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.152941, 0.0431373, 0.0431373, 0 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "intro"
+length = 27.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation1BG:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation1BG:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.101, 26 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.211765, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation1Text1:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 1.8, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation1Text1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Animation1Text2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.7, 7.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Animation1Text2:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3.7, 4.6, 6.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Animation1Text3:percent_visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 6.7, 7.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Animation1Text3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 7.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Animation1Text3:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 12.9, 14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 130 ), Vector2( 44, 130 ), Vector2( 46, 71 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Dragon1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 9.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Animation1Text4:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 16.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Animation1Text4:percent_visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 16.1, 17.3, 19.3, 20.4, 22, 22.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.462, 0.462, 0.7848, 0.785, 1.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../CanvasLayer/Animation1Button:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 24.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Animation2Border:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("../CanvasLayer/Animation1Button:custom_colors/font_color")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 24.3, 24.9, 25.4, 25.9, 26.5, 27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0.282353, 0.0117647, 0.0117647, 1 ), Color( 1, 0, 0, 1 ), Color( 0.247059, 0.00392157, 0.00392157, 1 ), Color( 1, 0, 0, 1 ), Color( 0.317647, 0, 0, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Dragon1:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 9.3, 9.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 218, -4 ), Vector2( 1, -4 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Dragon1:self_modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 9.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.686275, 0.933333, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "intro2"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation2Text1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.7, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation2Text1:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.7, 5.2, 6.6, 9, 9.1, 12.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.290909, 0.290909, 0.8123, 0.8123, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation1BG:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation1BG:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 7.5, 10.8, 13.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0.45098, 0.00392157, 0.00392157, 1 ), Color( 0.0351511, 0, 0, 1 ), Color( 0.0351511, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Animation2Border:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.7, 8.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Animation2Border:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2.5, 5, 7.2, 8.4, 10.5, 11.6, 13.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.286275, 0.219608, 0.219608, 1 ), Color( 0.290196, 0.219608, 0.219608, 1 ), Color( 0.0745098, 0.372549, 0.00392157, 1 ), Color( 0.207843, 0, 0, 1 ), Color( 0.117647, 0, 0.14902, 1 ), Color( 0.0901961, 0.0156863, 0.0156863, 1 ), Color( 0.0392157, 0.180392, 0.00392157, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Animation2Text1:custom_fonts/normal_font:outline_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1, 7.5, 9.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.705882, 0.211765, 0.211765, 1 ), Color( 1, 0, 0, 1 ), Color( 0.203922, 0.0117647, 0.0117647, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Animation2Text1:custom_colors/default_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( -0.4, 0, 13 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.513726, 0.0588235, 0.0588235, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../CanvasLayer/Animation2Button2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 13.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../CanvasLayer/Animation2Button2:custom_colors/font_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 13.7, 14.1, 14.5, 14.9, 15.3, 15.7, 16 ),
+"transitions": PoolRealArray( 1, 1, 1.8025, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.313726, 0, 0, 1 ), Color( 0.403922, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.313726, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.313726, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.313726, 0, 0, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Dragon2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 7.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Dragon2:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 8.1, 9.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, -1 ), Vector2( 1, -5 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Dragon2:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 10.2, 10.5, 10.8, 11.1, 11.4, 11.7, 12, 12.3, 12.6, 12.9, 13.2, 13.5, 13.8, 14.1, 14.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1.07177, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.243137, 0.00392157, 0.00392157, 1 ), Color( 0, 0, 0, 1 ), Color( 0.25098, 0.0117647, 0.0117647, 1 ), Color( 0, 0, 0, 1 ), Color( 0.192157, 0.0117647, 0.0117647, 1 ), Color( 0, 0, 0, 1 ), Color( 0.294118, 0.0117647, 0.0117647, 1 ), Color( 0, 0, 0, 1 ), Color( 0.262745, 0.00392157, 0.00392157, 1 ), Color( 0, 0, 0, 1 ), Color( 0.286275, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.27451, 0.0117647, 0.0117647, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "outro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation1BG:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.635294, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation1BG:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "outro(filler)"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ending:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=14]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 13 )
+
+[sub_resource type="StyleBoxEmpty" id=43]
+
+[sub_resource type="DynamicFont" id=16]
+size = 25
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 25
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 32
+outline_size = 3
+font_data = ExtResource( 22 )
+
+[node name="main" type="Node2D"]
+position = Vector2( -2, 3 )
+script = ExtResource( 1 )
+
+[node name="background2" type="TextureRect" parent="."]
+modulate = Color( 1, 0.984314, 0.984314, 1 )
+margin_left = 1110.0
+margin_top = 210.0
+margin_right = 1813.0
+margin_bottom = 740.0
+rect_rotation = 126.5
+rect_scale = Vector2( 1.16956, 1.99294 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="background1" type="TextureRect" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 0.490196, 0.32549, 0, 1 )
+margin_left = 1.0
+margin_top = -8.0
+margin_right = 683.0
+margin_bottom = 377.0
+rect_scale = Vector2( 1.00237, 1.00238 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="path1" type="Path2D" parent="."]
+position = Vector2( 25, -101 )
+scale = Vector2( 1, 1.44597 )
+curve = SubResource( 36 )
+
+[node name="path2" type="Path2D" parent="."]
+position = Vector2( 2.00001, -84.6123 )
+scale = Vector2( 1, 1.44597 )
+curve = SubResource( 37 )
+
+[node name="path3" type="Path2D" parent="."]
+position = Vector2( 2.00001, -84.6123 )
+scale = Vector2( 1, 1.44597 )
+curve = SubResource( 38 )
+
+[node name="path4" type="Path2D" parent="."]
+position = Vector2( 10, -104 )
+scale = Vector2( 1, 1.44597 )
+curve = SubResource( 39 )
+
+[node name="path5" type="Path2D" parent="."]
+position = Vector2( 2.00001, -84.6123 )
+scale = Vector2( 1, 1.44597 )
+curve = SubResource( 40 )
+
+[node name="Player2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 89, 178 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player2"]
+position = Vector2( -8, 0 )
+shape = SubResource( 35 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 95, 177 )
+scale = Vector2( 1.03759, 0.936171 )
+
+[node name="Dragon" type="AnimatedSprite" parent="."]
+light_mask = 0
+position = Vector2( 395, 181 )
+scale = Vector2( 0.85, 0.85 )
+frames = SubResource( 25 )
+frame = 2
+playing = true
+
+[node name="Dragon2" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 0.533333, 0.533333, 1 )
+light_mask = 0
+position = Vector2( 395, 181 )
+scale = Vector2( 0.85, 0.85 )
+frames = SubResource( 4 )
+frame = 7
+playing = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 23 )
+
+[node name="SpawnContainer" type="Node2D" parent="."]
+position = Vector2( 5, -4 )
+
+[node name="Position2D5" type="Position2D" parent="SpawnContainer"]
+position = Vector2( 495, 335 )
+scale = Vector2( 0.571429, 20 )
+
+[node name="Position2D4" type="Position2D" parent="SpawnContainer"]
+position = Vector2( 494, 267 )
+scale = Vector2( 0.571429, 20 )
+
+[node name="Position2D3" type="Position2D" parent="SpawnContainer"]
+position = Vector2( 494, 199 )
+scale = Vector2( 0.326531, 400 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnContainer"]
+position = Vector2( 496, 135 )
+scale = Vector2( 0.326531, 400 )
+
+[node name="Position2D" type="Position2D" parent="SpawnContainer"]
+position = Vector2( 496, 67 )
+scale = Vector2( 0.571429, 20 )
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 10.0
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_left = -13.0
+margin_top = -13.0
+margin_right = 698.0
+margin_bottom = 402.0
+color = Color( 0.152941, 0.0431373, 0.0431373, 0 )
+
+[node name="BlackBorder" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.0313726, 0.00784314, 0.00784314, 1 )
+self_modulate = Color( 0.247059, 0.0235294, 0.0235294, 1 )
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 745.0
+margin_bottom = 402.0
+texture = ExtResource( 14 )
+
+[node name="GameOverScreen" type="PanelContainer" parent="CanvasLayer"]
+modulate = Color( 0.854902, 0.117647, 0.117647, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverScreen"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 675.0
+margin_bottom = 378.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/CenterContainer"]
+margin_left = 57.0
+margin_top = 106.0
+margin_right = 611.0
+margin_bottom = 264.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+margin_right = 554.0
+margin_bottom = 94.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "YOU DIED."
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 554.0
+margin_bottom = 158.0
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+
+[node name="DifficultyBar" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 6.0
+margin_top = 305.0
+margin_right = 1165.0
+margin_bottom = 814.0
+rect_min_size = Vector2( 300, 300 )
+rect_scale = Vector2( 0.172336, 0.162969 )
+value = 100.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 15 )
+tint_under = Color( 0.72549, 0.486275, 0.486275, 1 )
+tint_progress = Color( 0.705882, 0, 0, 1 )
+
+[node name="SFX" parent="CanvasLayer" instance=ExtResource( 24 )]
+margin_right = 1180.0
+rect_scale = Vector2( 0.125, 0.125 )
+
+[node name="HealthBar" type="TextureProgress" parent="CanvasLayer"]
+visible = false
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 846.0
+margin_bottom = 265.0
+rect_scale = Vector2( 0.18, 0.16 )
+value = 71.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 12 )
+fill_mode = 1
+tint_under = Color( 1, 0.941176, 0.941176, 1 )
+tint_progress = Color( 0.470588, 1, 0.172549, 1 )
+stretch_margin_left = 90
+
+[node name="Health" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 11.0
+margin_top = 49.0
+margin_right = 267.0
+margin_bottom = 94.0
+custom_colors/font_color = Color( 0.419608, 1, 0.258824, 1 )
+custom_fonts/font = SubResource( 26 )
+text = "Health:"
+
+[node name="HealthConstant" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 43.0
+margin_top = 68.0
+margin_right = 299.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 0.419608, 1, 0.258824, 1 )
+custom_fonts/font = SubResource( 27 )
+text = "out of 70
+"
+
+[node name="HealthChange" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 12.0
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 0.419608, 1, 0.258824, 1 )
+custom_fonts/font = SubResource( 26 )
+text = "70
+"
+
+[node name="Countdown" type="Control" parent="CanvasLayer"]
+margin_left = 169.0
+margin_top = 349.0
+margin_right = 209.0
+margin_bottom = 389.0
+rect_scale = Vector2( 1.97466, 0.735572 )
+
+[node name="CountdownTimer" type="Timer" parent="CanvasLayer/Countdown"]
+process_mode = 0
+wait_time = 0.1
+
+[node name="seconds" type="RichTextLabel" parent="CanvasLayer/Countdown"]
+margin_left = -9.6219
+margin_top = -61.1769
+margin_right = 90.3781
+margin_bottom = -11.1769
+rect_scale = Vector2( 1, 3.5 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 34 )
+tab_size = 3
+text = " 00"
+scroll_active = false
+
+[node name="EneminesKilled" type="Label" parent="CanvasLayer"]
+margin_left = 9.0
+margin_top = 351.0
+margin_right = 215.0
+margin_bottom = 396.0
+custom_colors/font_color = Color( 0.921569, 0, 0, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Enemies Killed:"
+autowrap = true
+
+[node name="Constant" type="Label" parent="CanvasLayer"]
+margin_left = 39.0
+margin_top = 366.0
+margin_right = 295.0
+margin_bottom = 411.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 29 )
+text = " out of 15
+"
+
+[node name="Constant2" type="Label" parent="CanvasLayer"]
+margin_left = 39.0
+margin_top = 366.0
+margin_right = 295.0
+margin_bottom = 411.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 31 )
+text = " out of 7
+
+"
+
+[node name="KilledChange" type="Label" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 366.0
+margin_right = 266.0
+margin_bottom = 411.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "0
+"
+
+[node name="KilledChange2" type="Label" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 366.0
+margin_right = 266.0
+margin_bottom = 411.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 32 )
+text = "0
+"
+
+[node name="Animation1Button" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 246.0
+margin_top = 320.0
+margin_right = 414.0
+margin_bottom = 376.0
+custom_colors/font_color_disabled = Color( 0.0901961, 0.752941, 0.364706, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.458824, 0.180392, 0.180392, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.839216, 0.00392157, 0.00392157, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "play"
+flat = true
+
+[node name="Animation2Button2" type="Button" parent="CanvasLayer"]
+margin_left = 247.0
+margin_top = 307.0
+margin_right = 434.0
+margin_bottom = 383.0
+custom_colors/font_color_disabled = Color( 0.443137, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0.329412, 0, 0, 1 )
+custom_colors/font_color = Color( 0.313726, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.0588235, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "next"
+flat = true
+
+[node name="Animation1" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../../Cutscene")
+anims/RESET = SubResource( 18 )
+anims/end = SubResource( 42 )
+anims/intro = SubResource( 15 )
+anims/intro2 = SubResource( 19 )
+anims/outro = SubResource( 20 )
+anims/outro(filler) = SubResource( 24 )
+
+[node name="Leaderboard" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -133.0
+margin_top = -68.0
+margin_right = 163.0
+margin_bottom = -32.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.768627, 0.768627, 0.768627, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/focus = SubResource( 43 )
+text = "Play"
+flat = true
+icon_align = 1
+
+[node name="Cutscene" type="Node2D" parent="."]
+
+[node name="Animation1BG" type="ColorRect" parent="Cutscene"]
+visible = false
+margin_left = 1.0
+margin_top = -5.0
+margin_right = 697.0
+margin_bottom = 389.0
+color = Color( 0.444706, 0, 0, 1 )
+
+[node name="Animation1Text1" type="RichTextLabel" parent="Cutscene"]
+visible = false
+margin_left = 90.0
+margin_top = 111.0
+margin_right = 605.0
+margin_bottom = 220.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "WElcome to my volcano wizard."
+
+[node name="Animation1Text2" type="RichTextLabel" parent="Cutscene"]
+margin_left = 109.0
+margin_top = 59.0
+margin_right = 599.0
+margin_bottom = 259.0
+rect_scale = Vector2( 1.06422, 1.09344 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 16 )
+visible_characters = 0
+percent_visible = 0.222222
+text = "
+
+I have been expecting you."
+scroll_active = false
+
+[node name="Animation1Text3" type="RichTextLabel" parent="Cutscene"]
+visible = false
+margin_left = 23.2555
+margin_top = 130.0
+margin_right = 388.255
+margin_bottom = 472.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 16 )
+text = "I am the dragon. "
+
+[node name="Animation1Text4" type="RichTextLabel" parent="Cutscene"]
+visible = false
+margin_left = 47.0
+margin_top = 120.0
+margin_right = 412.0
+margin_bottom = 462.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 41 )
+text = "You have came a long way, but this is where your journey ends.
+
+I've slain many other wizards just like you.
+
+Lets see what your capable of.
+"
+
+[node name="Dragon1" type="TextureRect" parent="Cutscene"]
+visible = false
+self_modulate = Color( 0.458824, 0.0196078, 0, 1 )
+margin_left = 200.0
+margin_top = -1.0
+margin_right = 882.0
+margin_bottom = 384.0
+texture = ExtResource( 18 )
+
+[node name="Dragon2" type="TextureRect" parent="Cutscene"]
+visible = false
+self_modulate = Color( 0.243137, 0.00392157, 0.00392157, 1 )
+margin_left = 200.0
+margin_top = -1.0
+margin_right = 882.0
+margin_bottom = 384.0
+texture = ExtResource( 20 )
+
+[node name="Animation2Text1" type="RichTextLabel" parent="Cutscene"]
+margin_left = 70.0
+margin_top = 58.0
+margin_right = 470.0
+margin_bottom = 460.0
+custom_colors/default_color = Color( 0.360784, 0.0823529, 0.0823529, 1 )
+custom_fonts/normal_font = SubResource( 21 )
+visible_characters = 0
+percent_visible = 0.139636
+text = "You impress me wizard.
+
+Except you have yet to see my final form.
+
+any last words?
+"
+
+[node name="Animation2Border" type="TextureRect" parent="Cutscene"]
+visible = false
+modulate = Color( 0.890196, 0.890196, 0.890196, 1 )
+self_modulate = Color( 0.288471, 0.219608, 0.219608, 1 )
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 685.0
+margin_bottom = 382.0
+texture = ExtResource( 14 )
+
+[node name="Play" type="Button" parent="Cutscene"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+text = "play"
+
+[node name="border" type="TextureRect" parent="."]
+modulate = Color( 0.3, 0, 0, 1 )
+margin_left = -7.0
+margin_top = -6.0
+margin_right = 678.0
+margin_bottom = 382.0
+rect_scale = Vector2( 1.0223, 1.00496 )
+texture = ExtResource( 14 )
+
+[node name="ending" type="ColorRect" parent="."]
+margin_right = 688.0
+margin_bottom = 389.0
+color = Color( 0.207843, 0.207843, 0.207843, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -10.0
+
+[connection signal="child_entered_tree" from="path1" to="." method="_on_path1_child_entered_tree"]
+[connection signal="child_entered_tree" from="path2" to="." method="_on_path2_child_entered_tree"]
+[connection signal="child_entered_tree" from="path3" to="." method="_on_path3_child_entered_tree"]
+[connection signal="child_entered_tree" from="path4" to="." method="_on_path4_child_entered_tree"]
+[connection signal="child_entered_tree" from="path5" to="." method="_on_path5_child_entered_tree"]
+[connection signal="HealthUpdate" from="Player2" to="CanvasLayer/SFX" method="_on_Player2_HealthUpdate"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_Difficultytimer_timeout"]
+[connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="timeout" from="CanvasLayer/Countdown/CountdownTimer" to="CanvasLayer/Countdown" method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Animation1Button" to="." method="_on_Animation1Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Animation2Button2" to="." method="_on_Animation2Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
+[connection signal="pressed" from="Cutscene/Play" to="." method="_on_Play_pressed"]

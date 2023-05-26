@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Input.gd" type="Script" id=2]
+[ext_resource path="res://Music/zapsplat_multimedia_game_error_tone_001_24919.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Music/little_robot_sound_factory_Jingle_Win_Synth_03.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "shake"
+length = 0.012
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.003, 0.009, 0.012 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -25, 0 ), Vector2( 25, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Control" type="Control"]
+margin_bottom = 385.0
+script = ExtResource( 2 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 37.0
+margin_top = 482.0
+margin_right = 613.0
+margin_bottom = 582.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 49.0
+margin_top = 394.0
+margin_right = 624.0
+margin_bottom = 428.0
+text = "Your name is:"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -52.0
+margin_right = 672.0
+margin_bottom = 52.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 672.0
+margin_bottom = 104.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 75.0
+margin_top = 56.5
+margin_right = 377.0
+margin_bottom = 83.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "Type Your word!"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 330.0
+margin_top = 249.0
+margin_right = 632.0
+margin_bottom = 276.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "enter"
+align = 1
+valign = 1
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 194.0
+margin_top = 111.0
+margin_right = 496.0
+margin_bottom = 138.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "Length: "
+align = 1
+valign = 1
+
+[node name="Label5" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 415.0
+margin_top = 5.0
+margin_right = 671.0
+margin_bottom = 32.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "press esc to exit"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/shake = SubResource( 10 )
+
+[node name="correct" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+
+[node name="wrong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -23.0
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]

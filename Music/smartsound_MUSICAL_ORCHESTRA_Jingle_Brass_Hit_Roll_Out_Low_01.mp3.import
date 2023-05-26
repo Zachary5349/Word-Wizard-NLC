@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/smartsound_MUSICAL_ORCHESTRA_Jingle_Brass_Hit_Roll_Out_Low_01.mp3-0f9411d6a0763891f5b03f1c657ee229.mp3str"
+
+[deps]
+
+source_file="res://Music/smartsound_MUSICAL_ORCHESTRA_Jingle_Brass_Hit_Roll_Out_Low_01.mp3"
+dest_files=[ "res://.import/smartsound_MUSICAL_ORCHESTRA_Jingle_Brass_Hit_Roll_Out_Low_01.mp3-0f9411d6a0763891f5b03f1c657ee229.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

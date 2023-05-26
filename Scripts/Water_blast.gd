@@ -1,0 +1,23 @@
+extends Area2D
+
+var hit = false
+signal HealthUpdate(attack_damage)
+
+func _process(delta):
+	if hit == false:
+		position.y += 3 * get_parent().slow_scale
+	else:
+		position.y += 0.25 * get_parent().slow_scale
+
+
+
+func _on_Area2D_body_entered(body):
+	if body.get_class() == "KinematicBody2D" && hit == false:
+		hit = true
+		get_node("../Player")._damage(20)
+		$Hit.play()
+		$AnimatedSprite.play("splash")
+		yield(get_tree().create_timer(0.1), "timeout")
+		z_index = 2
+		yield(get_tree().create_timer(3), "timeout")
+		queue_free()

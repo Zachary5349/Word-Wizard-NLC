@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_luggage_rucksack_backpack_drop_on_grass_002_47961.mp3-a14f898f17991d7a0eec188e10131666.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_foley_luggage_rucksack_backpack_drop_on_grass_002_47961.mp3"
+dest_files=[ "res://.import/zapsplat_foley_luggage_rucksack_backpack_drop_on_grass_002_47961.mp3-a14f898f17991d7a0eec188e10131666.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
