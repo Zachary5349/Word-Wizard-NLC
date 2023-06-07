@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Multiplayer/arena.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Wizard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Multiplayer/Wizard2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Multiplayer/Arena.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 283, 22.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27.5, 160.5 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 684.0
+margin_bottom = 385.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 189 )
+
+[node name="Player2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 602, 189 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 69, 87, 78, 67, 94, 53, 121, 44, 62, 37 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 567, 44, 589, 52, 604, 65, 615, 89, 622, 37 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 612, 320, 607, 336, 597, 345, 579, 354, 588, 376, 639, 334 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 68, 313, 76, 337, 86, 346, 118, 354, 44, 352 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 349, 23.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 347, 374 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 42.5, 196.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 640, 196 )
+shape = SubResource( 2 )
