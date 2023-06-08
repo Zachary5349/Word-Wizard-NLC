@@ -1,12 +1,8 @@
 extends Node2D
 
+signal HealthUpdate(attack_damage)
+signal HealthUpdate2(attack_damage)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Master.mode = "mp"
 
@@ -19,5 +15,12 @@ func _process(delta):
 	else:
 		$Player2.z_index = 3
 		$Player1.z_index = 2
-	print(str($Player1.z_index) + " " + str($Player2.z_index))
 	
+
+
+func _on_Player1_HealthUpdate(attack_damage):
+	emit_signal("HealthUpdate", attack_damage)
+
+
+func _on_Player2_HealthUpdate(attack_damage):
+	emit_signal("HealthUpdate2", attack_damage)

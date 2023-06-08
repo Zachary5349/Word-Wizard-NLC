@@ -4,6 +4,7 @@
 [ext_resource path="res://WAssets/letters/blank_selb.png" type="Texture" id=2]
 
 [resource]
+flags = 4
 frames = 2
 fps = 2.0
 frame_0/texture = ExtResource( 2 )

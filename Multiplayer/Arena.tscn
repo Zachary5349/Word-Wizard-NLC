@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Multiplayer/arena.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Wizard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Multiplayer/Wizard1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Multiplayer/Wizard2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Multiplayer/Arena.gd" type="Script" id=4]
 
@@ -19,12 +19,6 @@ margin_right = 684.0
 margin_bottom = 385.0
 texture = ExtResource( 1 )
 expand = true
-
-[node name="Player1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 80, 189 )
-
-[node name="Player2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 602, 189 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -55,3 +49,12 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 640, 196 )
 shape = SubResource( 2 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 83, 189 )
+
+[node name="Player2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 601, 197 )
+
+[connection signal="HealthUpdate" from="Player1" to="." method="_on_Player1_HealthUpdate"]
+[connection signal="HealthUpdate" from="Player2" to="." method="_on_Player2_HealthUpdate"]

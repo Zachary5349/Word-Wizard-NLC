@@ -15,17 +15,16 @@ const bulletPath = preload("res://Multiplayer/Bullet.tscn")
 
 signal HealthUpdate(attack_damage)
 
-
 func _process(delta):
 	velocity = Vector2()
 	if move == true:
-		if Input.is_action_pressed("move_right2"):
+		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
-		if Input.is_action_pressed("move_left2"):
+		if Input.is_action_pressed("move_left"):
 			velocity.x -= 1
-		if Input.is_action_pressed("move_down2"):
+		if Input.is_action_pressed("move_down"):
 			velocity.y += 1
-		if Input.is_action_pressed("move_up2"):
+		if Input.is_action_pressed("move_up"):
 			velocity.y -= 1
 
 	velocity = velocity.normalized()
@@ -66,8 +65,6 @@ func _process(delta):
 
 func _damage(dmg):
 	emit_signal("HealthUpdate", dmg)
-#	if move == false:
-#		get_parent()._hide()
 	hurt = true
 #func _knockback(damage_source_pos, recieved_dmg):
 #	if get_kb:
@@ -80,14 +77,14 @@ func _damage(dmg):
 func shoot(target_pos):
 	var bullet = bulletPath.instance()
 	get_parent().add_child(bullet)
-	bullet.global_position = global_position
-	bullet.look_at(target_pos)	
+	bullet.global_position = global_position	
+	bullet.look_at(target_pos)
 	bullet.velocity = target_pos - bullet.global_position
 	
 	
 func _input(event):
-		if event.is_action_pressed("atk2") && !cooldown:
-			shoot((get_parent().get_node("Player1")).global_position)
+		if event.is_action_pressed("atk1") && !cooldown:
+			shoot((get_parent().get_node("Player2")).global_position)
 			atk = true
 			cooldown = true
 			$AnimatedSprite.animation = "atk"

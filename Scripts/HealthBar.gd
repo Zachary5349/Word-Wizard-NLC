@@ -51,9 +51,9 @@ func _on_Player_HealthUpdate(damage):
 	$HealthBar.value -= damage
 	
 	damage_cooldown = 50
-	$AnimationPlayer2.play("hit")
-	yield($AnimationPlayer2, "animation_finished")
-	$AnimationPlayer2.stop()
+#	$AnimationPlayer2.play("hit")
+#	yield($AnimationPlayer2, "animation_finished")
+#	$AnimationPlayer2.stop()
 	
 	
 

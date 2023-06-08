@@ -84,15 +84,3 @@ func _damage(dmg):
 ##		global_position.y = lerp(global_position.y, knockback.y, 0.01)
 	
 	
-
-func _input(event):
-		if event.is_action_pressed("atk1") && !cooldown && Master.mode == "mp":
-			atk = true
-			cooldown = true
-			$AnimatedSprite.animation = "atk"
-			$AnimatedSprite.flip_h = velocity.x < 0
-			$AnimatedSprite.flip_v = false
-			yield(get_tree().create_timer(0.8),"timeout")
-			atk = false
-			cooldown = false
-			
