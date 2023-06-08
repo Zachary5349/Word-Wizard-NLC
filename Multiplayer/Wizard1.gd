@@ -61,6 +61,10 @@ func _process(delta):
 			$AnimatedSprite.animation = "backidle"
 		else:
 			$AnimatedSprite.animation = "sideidle"
+	if $AnimatedSprite.flip_h:
+		$AnimatedSprite/Area2D.scale.x = -1
+	else:
+		$AnimatedSprite/Area2D.scale.x = 1
 
 
 func _damage(dmg):
@@ -77,7 +81,7 @@ func _damage(dmg):
 func shoot(target_pos):
 	var bullet = bulletPath.instance()
 	get_parent().add_child(bullet)
-	bullet.global_position = global_position	
+	bullet.global_position = global_position
 	bullet.look_at(target_pos)
 	bullet.velocity = target_pos - bullet.global_position
 	
@@ -93,3 +97,22 @@ func _input(event):
 			yield(get_tree().create_timer(0.8),"timeout")
 			atk = false
 			cooldown = false
+		elif event.is_action_pressed("melee1") && !cooldown:
+			cooldown = true
+			atk = true
+			$AnimatedSprite.animation = "melee"
+			yield(get_tree().create_timer(0.17), "timeout")
+			$AnimatedSprite/Area2D/CollisionPolygon2D.disabled = false
+			yield(get_tree().create_timer(0.25), "timeout")
+			$AnimatedSprite/Area2D/CollisionPolygon2D.disabled = true
+			yield(get_tree().create_timer(0.15),"timeout")
+			cooldown = false
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Player2":
+		body._damage(15)
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "melee":
+		atk = false
