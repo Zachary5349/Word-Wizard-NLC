@@ -55,8 +55,6 @@ func _on_Player_HealthUpdate(damage):
 	yield($AnimationPlayer2, "animation_finished")
 	$AnimationPlayer2.stop()
 
-	
-
 
 func _on_Player2_HealthUpdate(attack_damage):
 	print("happened")
