@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://ABCscripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://ABCscripts/DifficultyTimer.gd" type="Script" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://ABCassets/phase2/1.png" type="Texture" id=27]
 [ext_resource path="res://Music/music_orlamusic_Epic+001.mp3" type="AudioStream" id=28]
 [ext_resource path="res://Music/music_orlamusic_Epic+010.mp3" type="AudioStream" id=29]
+[ext_resource path="res://Pause & Death/Pause.tscn" type="PackedScene" id=30]
 
 [sub_resource type="Curve2D" id=36]
 _data = {
@@ -816,7 +817,7 @@ light_mask = 0
 position = Vector2( 395, 181 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 25 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="Dragon2" type="AnimatedSprite" parent="."]
@@ -825,7 +826,7 @@ light_mask = 0
 position = Vector2( 395, 181 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 4 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1111,6 +1112,8 @@ custom_styles/focus = SubResource( 43 )
 text = "Play"
 flat = true
 icon_align = 1
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource( 30 )]
 
 [node name="Cutscene" type="Node2D" parent="."]
 
