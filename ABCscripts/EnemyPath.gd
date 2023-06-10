@@ -14,7 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	look_at(Vector2(89,178))
-	offset += speed
+	offset += speed * Engine.time_scale
 
 
 func _on_Area2D_body_entered(body):
