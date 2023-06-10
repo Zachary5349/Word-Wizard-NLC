@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://WScenes/Wizard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WScenes/Giant_Worm.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://WScenes/Input.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Music/zapsplat_nature_earthquake_rumble_rocks_movement_landslide_48251.mp3" type="AudioStream" id=12]
 [ext_resource path="res://WScenes/Worm_cam.gd" type="Script" id=13]
+[ext_resource path="res://Pause & Death/Pause.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -370,6 +371,8 @@ align = 1
 valign = 1
 autowrap = true
 percent_visible = 0.0
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource( 14 )]
 
 [node name="Correct" type="Sprite" parent="."]
 visible = false
