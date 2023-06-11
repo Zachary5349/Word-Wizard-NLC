@@ -87,8 +87,10 @@ func shoot(target_pos):
 	
 	
 func _input(event):
-		if event.is_action_pressed("atk1") && !cooldown:
+	if move == true:
+		if event.is_action_pressed("atk1") && !cooldown && get_parent().p1_shots > 0:
 			shoot((get_parent().get_node("Player2")).global_position)
+			get_parent().p1_shots -= 1
 			atk = true
 			cooldown = true
 			$AnimatedSprite.animation = "atk"

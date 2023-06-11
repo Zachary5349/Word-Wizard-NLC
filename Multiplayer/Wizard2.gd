@@ -84,13 +84,15 @@ func shoot(target_pos):
 	var bullet = bulletPath.instance()
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
-	bullet.look_at(target_pos)	
+	bullet.look_at(target_pos)
 	bullet.velocity = target_pos - bullet.global_position
 	
 	
 func _input(event):
-		if event.is_action_pressed("atk2") && !cooldown:
+	if move == true:
+		if event.is_action_pressed("atk2") && !cooldown && get_parent().p2_shots > 0:
 			shoot((get_parent().get_node("Player1")).global_position)
+			get_parent().p2_shots -= 1
 			atk = true
 			cooldown = true
 			$AnimatedSprite.animation = "atk"
@@ -112,7 +114,6 @@ func _input(event):
 
 
 func _on_Area2D_body_entered(body):
-	print("poop")
 	if body.name == "Player1":
 		body._damage(15)
 

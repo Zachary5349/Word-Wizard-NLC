@@ -96,8 +96,8 @@ shape = SubResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -2 )
 frames = SubResource( 1 )
-animation = "melee"
-frame = 2
+animation = "New Anim"
+frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite"]
