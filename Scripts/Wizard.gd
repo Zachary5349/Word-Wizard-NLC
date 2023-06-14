@@ -6,9 +6,11 @@ var last_dir = 0
 var velocity = Vector2()
 var move = true
 var atk = false
+var in_atk = false
 var get_kb = true
 var kb_modifier = 0.5
 var hurt = false
+var cooldown = false
 signal HealthUpdate(attack_damage)
 
 func _ready():
@@ -34,11 +36,12 @@ func _process(delta):
 #	position.x = clamp(position.x, 0, screen_size.x)
 #	position.y = clamp(position.y, 0, screen_size.y)
 	if atk == true:
-		$AnimatedSprite.animation = "atk"
-		$AnimatedSprite.flip_h = velocity.x < 0
-		$AnimatedSprite.flip_v = false
-		yield(get_tree().create_timer(0.8),"timeout")
-		atk = false
+		if Master.mode != "mp":
+			$AnimatedSprite.animation = "atk"
+			$AnimatedSprite.flip_h = velocity.x < 0
+			$AnimatedSprite.flip_v = false
+			yield(get_tree().create_timer(0.8),"timeout")
+			atk = false
 	elif hurt == true:
 		$AnimatedSprite.animation = "hurt"
 		$AnimatedSprite.flip_h = velocity.x < 0
@@ -79,6 +82,5 @@ func _damage(dmg):
 #		var knockback = kb_dir * kb_strength
 #		global_position.x = lerp(global_position.x, (global_position.x + 30), 0.5)
 ##		global_position.y = lerp(global_position.y, knockback.y, 0.01)
-	
 	
 	

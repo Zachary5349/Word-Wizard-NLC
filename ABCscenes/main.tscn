@@ -817,7 +817,8 @@ light_mask = 0
 position = Vector2( 395, 181 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 25 )
-frame = 5
+
+frame = 3
 playing = true
 
 [node name="Dragon2" type="AnimatedSprite" parent="."]

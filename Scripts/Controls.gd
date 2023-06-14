@@ -11,13 +11,13 @@ func _on_back_pressed():
 
 
 func _on_back_mouse_entered():
-	$AnimationPlayer.play("backhover")
+	$back/AnimationPlayer.play("backhover")
 
 
 func _on_back_mouse_exited():
-	$AnimationPlayer.play("RESET")
+	$back/AnimationPlayer.play("RESET")
 
 
 func _on_back_button_down():
-	$AnimationPlayer.play("backd")
+	$back/AnimationPlayer.play("backd")
 	
