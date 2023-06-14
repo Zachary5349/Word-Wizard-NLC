@@ -50,6 +50,7 @@ var last_grass_placed = Vector2.ZERO # coordinates of latest bridge tile placed
 
 
 func _ready():
+	Master.current = "kraken"
 	$CanvasLayer/Control.visible = false
 	$CanvasLayer/SFX.visible = false
 	$CanvasLayer/Label3.percent_visible = 0

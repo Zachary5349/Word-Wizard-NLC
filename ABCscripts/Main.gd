@@ -33,6 +33,7 @@ var enemies = []
 var valid_enemies = []
 var current_enemies = []
 func _ready() -> void:
+	Master.current = "dragon"
 	$AudioStreamPlayer.play()
 	Master.current = "dragon"
 	$Player2.move = false

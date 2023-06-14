@@ -18,6 +18,7 @@ var stop = false
 var process = false
 
 func _ready():
+	Master.current = "worm"
 	$Shadow.position = Vector2($Player.position.x, $Player.position.y+12)
 	$Player.move = false
 	#allow randomization and get a randum number from 0-1

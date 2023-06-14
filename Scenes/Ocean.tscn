@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Assets/log.tres" type="Texture" id=1]
 [ext_resource path="res://Assets/water2.tres" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Music/west_wolf_Beach_Sea_Waves.mp3" type="AudioStream" id=29]
 [ext_resource path="res://Music/music_zapsplat_game_music_quiz_puzzle_tension_electronic_arpeggio_003.mp3" type="AudioStream" id=30]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=31]
+[ext_resource path="res://Pause & Death/Pause.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -1067,6 +1068,8 @@ margin_right = 1318.0
 margin_bottom = 117.0
 color = Color( 0, 0, 0, 1 )
 
+[node name="Pause" parent="CanvasLayer" instance=ExtResource( 32 )]
+
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
 cell_size = Vector2( 32, 32 )
@@ -1146,6 +1149,7 @@ shape = SubResource( 25 )
 
 [node name="Wand" type="AnimatedSprite" parent="WandArea"]
 frames = SubResource( 26 )
+
 frame = 4
 playing = true
 
