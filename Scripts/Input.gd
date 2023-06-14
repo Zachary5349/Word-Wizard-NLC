@@ -11,7 +11,6 @@ var template_let_slot = preload("res://Scenes/LetterSlot.tscn")
 
 signal word_found # signal for when the word is entered and valid
 
-
 func _ready() -> void: # when the program starts, the sorting happens, so there isn't a significant drop on in-game performance because of this method processing
 	var f = File.new()
 	f.open(file, File.READ)
@@ -37,7 +36,6 @@ func _process(delta):
 				get_node("MarginContainer/HBoxContainer/Let"+ str($LineEdit.caret_position+2)+"/selectf").visible = true 
 			if x+1 == $LineEdit.caret_position:
 				get_node("MarginContainer/HBoxContainer/Let"+ str($LineEdit.caret_position+1)+"/selectb").visible = true
-			
 		
 		for i in $LineEdit.text.length(): # for the num of letters in the typed text
 			if $LineEdit.text[i].to_lower() in "abcdefghijklmnopqrstuvwxyz": # if it is a letter (not special character or num like 123#$@/.etc)
@@ -50,6 +48,7 @@ func _process(delta):
 
 
 func _show(length):
+	process = false
 	visible = true
 	var size = 0  # size of letter box
 	$LineEdit.grab_focus() # player can start typing
@@ -87,24 +86,35 @@ func _hide():
 	if visible == true:
 		visible = false 
 		process = false
+		print("done")
 		for x in $LineEdit.max_length+2:
 			get_node("MarginContainer/HBoxContainer/Let" + str(x+1)).queue_free() 
 		$LineEdit.clear() # clear input
 
+func _end(turn):
+	if visible == true:
+		emit_signal("word_found")
+		_hide()
+		if turn == 1:
+			get_parent().get_parent().p1_shots -= 1
+		elif turn == 2:
+			get_parent().get_parent().p2_shots -= 1
+			
 
 func _on_LineEdit_text_entered(new_text):
 	if new_text.length() == $LineEdit.max_length: # make sure that it the right size
 		if file_list.has(new_text.to_lower()): # check if word is valid
 			found = true
 	if found == true:
-		print(new_text)
+#		print(new_text)
 		$correct.play()
 		emit_signal("word_found") # signal for when the word is found 
 		found = false
 	else:
 		$AnimationPlayer.play("shake") # shake ui
+		print($AnimationPlayer.current_animation)
 		$wrong.play()
 
 
-func _on_LineEdit_text_changed(new_text):
+func _on_LineEdit_text_changed(_new_text):
 	$click.play()
