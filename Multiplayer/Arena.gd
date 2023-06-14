@@ -52,7 +52,8 @@ func _turn():
 	$CanvasLayer/Label2.visible = true
 	$Timer.start()
 	while $Timer.time_left > 0:
-		$CanvasLayer/Input._show(5)
+		randomize()
+		$CanvasLayer/Input._show((randi()%5+3))
 		yield($CanvasLayer/Input, "word_found")
 		if p_turn == 1:
 			p1_shots += 1
@@ -61,9 +62,10 @@ func _turn():
 		$CanvasLayer/Input._hide()
 		yield(get_tree().create_timer(0.5), "timeout")
 	emit_signal("turn_end")
-	
-	
+
+
 func _on_play_pressed():
+	$click.play()
 	$CanvasLayer/play.visible = false
 	$CanvasLayer/instructions.visible = false
 	$AnimationPlayer.play("one")
@@ -103,5 +105,36 @@ func _on_play_pressed():
 	$Player1.move = true
 	$Player2.move = true
 
+
 func _on_Timer_timeout():
 	$CanvasLayer/Input._end(p_turn)
+
+
+func _on_instructions_pressed():
+	$click.play()
+	$CanvasLayer/Label.visible = false
+	$CanvasLayer/play.visible = false
+	$CanvasLayer/instructions.visible = false
+	$CanvasLayer/instr.visible = true
+	$CanvasLayer/back.visible = true
+
+
+func _on_back_pressed():
+	$click.play()
+	$CanvasLayer/instr.visible = false
+	$CanvasLayer/back.visible = false
+	$CanvasLayer/Label.visible = true
+	$CanvasLayer/play.visible = true
+	$CanvasLayer/instructions.visible = true
+
+
+func _on_back_mouse_entered():
+	$AnimationPlayer2.play("backhover")
+
+
+func _on_back_mouse_exited():
+	$AnimationPlayer2.play("RESET")
+
+
+func _on_back_button_down():
+	$AnimationPlayer2.play("backd")

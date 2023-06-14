@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Multiplayer/arena.png" type="Texture" id=1]
 [ext_resource path="res://Multiplayer/Wizard1.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/Input.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/letters/slash.png" type="Texture" id=9]
+[ext_resource path="res://Assets/backb.png" type="Texture" id=10]
+[ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 283, 22.5 )
@@ -16,24 +18,48 @@ extents = Vector2( 283, 22.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.5, 160.5 )
 
+[sub_resource type="DynamicFontData" id=22]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=23]
+size = 28
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = SubResource( 22 )
+
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://Assets/Fblapix-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=4]
-size = 28
+size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 3 )
 
+[sub_resource type="DynamicFont" id=24]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 28
-outline_size = 2
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=21]
+size = 28
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
 
 [sub_resource type="Animation" id=12]
 length = 0.001
@@ -316,6 +342,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=13]
 resource_name = "start"
 length = 6.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Label:text")
 tracks/0/interp = 1
@@ -347,7 +374,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.3 ),
+"times": PoolRealArray( 0.09, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -395,7 +422,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.1, 0.3, 0.7 ),
+"times": PoolRealArray( 0.09, 0.3, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0 ]
@@ -407,7 +434,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.1, 0.3 ),
+"times": PoolRealArray( 0.09, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
@@ -419,7 +446,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.1, 0.3, 0.7 ),
+"times": PoolRealArray( 0.09, 0.3, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0 ]
@@ -549,6 +576,49 @@ tracks/2/keys = {
 "values": [ 0.0, 1.0, 1.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.768627, 0.768627, 0.768627, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.87451, 0, 1 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -589,7 +659,7 @@ position = Vector2( 640, 196 )
 shape = SubResource( 2 )
 
 [node name="Player1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 83, 189 )
+position = Vector2( 83, 197 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 601, 197 )
@@ -609,25 +679,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.760784 )
 
-[node name="Input" parent="CanvasLayer" instance=ExtResource( 7 )]
-visible = false
-margin_left = 7.0
-margin_right = 7.0
-
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -248.5
-margin_top = -10.0
-margin_right = 248.5
-margin_bottom = 14.0
+margin_left = 92.5
+margin_top = 182.5
+margin_right = 589.5
+margin_bottom = 206.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 23 )
 text = "3"
 align = 1
+
+[node name="instr" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.026
+anchor_right = 0.5
+anchor_bottom = 0.026
+margin_left = -300.0
+margin_right = 300.0
+margin_bottom = 315.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Both players will have a 30 second typing phase.
+
+Each correct word will give you 1 spell blast.
+
+After the typing phase comes the battle phase.
+
+you'll also have a wand spin for close quarters combat that costs no spells!
+
+beat the other wizard and claim the glory!"
+align = 1
+valign = 1
+autowrap = true
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 visible = false
@@ -640,8 +729,8 @@ margin_top = -179.5
 margin_right = 44.0
 margin_bottom = -128.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
-custom_fonts/font = SubResource( 4 )
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 24 )
 text = "00:00
 "
 
@@ -650,17 +739,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -273.0
+margin_left = -316.0
 margin_top = -147.5
-margin_right = -233.0
+margin_right = -276.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
 custom_fonts/font = SubResource( 4 )
 align = 3
+percent_visible = 0.0
 
 [node name="slash1" type="Sprite" parent="CanvasLayer/shots1"]
-position = Vector2( 51, 15 )
+visible = false
+position = Vector2( 43, 12 )
 texture = ExtResource( 9 )
 
 [node name="shots12" type="Label" parent="CanvasLayer"]
@@ -668,12 +758,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -210.0
+margin_left = -264.0
 margin_top = -147.5
-margin_right = -164.0
+margin_right = -218.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
 custom_fonts/font = SubResource( 4 )
 align = 3
 
@@ -682,17 +771,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 214.0
+margin_left = 230.0
 margin_top = -147.5
-margin_right = 254.0
+margin_right = 270.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
 custom_fonts/font = SubResource( 4 )
 align = 3
 
 [node name="slash2" type="Sprite" parent="CanvasLayer/shots2"]
-position = Vector2( 51, 15 )
+visible = false
+position = Vector2( 43, 12 )
 texture = ExtResource( 9 )
 
 [node name="shots22" type="Label" parent="CanvasLayer"]
@@ -700,12 +789,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 277.0
+margin_left = 282.0
 margin_top = -147.5
-margin_right = 323.0
+margin_right = 328.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 4
 custom_fonts/font = SubResource( 4 )
 align = 3
 
@@ -718,7 +806,7 @@ anchor_bottom = 0.5
 margin_left = -126.0
 margin_top = 63.0
 margin_right = 126.0
-margin_bottom = 93.0
+margin_bottom = 95.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.768627, 0.768627, 0.768627, 1 )
@@ -745,8 +833,30 @@ custom_styles/focus = SubResource( 7 )
 text = "Play"
 flat = true
 
+[node name="Input" parent="CanvasLayer" instance=ExtResource( 7 )]
+visible = false
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="back" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -54.5
+margin_top = -70.0
+margin_right = 54.5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/focus = SubResource( 15 )
+text = "Back"
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -757,7 +867,22 @@ anims/play = SubResource( 9 )
 anims/start = SubResource( 13 )
 anims/two = SubResource( 11 )
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 18 )
+anims/backd = SubResource( 19 )
+anims/backhover = SubResource( 20 )
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -30.0
+
 [connection signal="HealthUpdate" from="Player1" to="SFX" method="_on_Player_HealthUpdate"]
 [connection signal="HealthUpdate" from="Player2" to="SFX2" method="_on_Player_HealthUpdate"]
+[connection signal="pressed" from="CanvasLayer/instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="CanvasLayer/play" to="." method="_on_play_pressed"]
+[connection signal="button_down" from="CanvasLayer/back" to="." method="_on_back_button_down"]
+[connection signal="mouse_entered" from="CanvasLayer/back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

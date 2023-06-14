@@ -112,6 +112,7 @@ func _on_LineEdit_text_entered(new_text):
 		found = false
 	else:
 		$AnimationPlayer.play("shake") # shake ui
+		print($AnimationPlayer.current_animation)
 		$wrong.play()
 
 
