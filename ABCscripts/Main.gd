@@ -32,6 +32,8 @@ var stagetimer = 1
 var enemies = []
 var valid_enemies = []
 var current_enemies = []
+
+
 func _ready() -> void:
 	Master.current = "dragon"
 	$AudioStreamPlayer.play()
@@ -61,6 +63,13 @@ func _ready() -> void:
 	$CanvasLayer/EneminesKilled.visible = false
 #	$Leaderboard.mouse_filter = Control.MOUSE_FILTER_STOP
 
+func _process(delta):
+	if $CanvasLayer/Pause.shown:
+		spawn_timer.paused = true
+		difficulty_timer.paused = true
+	else:
+		spawn_timer.paused = false
+		difficulty_timer.paused = false
 
 func find_new_active_enemy(typed_character: String):
 	for enemy in valid_enemies:
@@ -230,8 +239,10 @@ func playerHit():
 	enemies.clear()
 	valid_enemies.clear()
 	current_letter_index = -1
-	if health_bar.value<= 0:
-		game_over()
+	if health_bar.value<= 25:
+#		game_over()
+		yield(get_tree().create_timer(1), "timeout")
+		get_tree().change_scene("res://Pause & Death/Death.tscn")
 
 
 func game_over():

@@ -2,11 +2,12 @@ extends Node
 
 
 var timescale = 1;
+var shown = false
 
 
 func _ready():
 	$ColorRect.hide()
-
+	shown = false
 
 func _on_Quit_pressed():
 	$click.play()
@@ -27,12 +28,13 @@ func _on_Main_Menu_pressed():
 func _input(event):
 	if Input.is_action_just_pressed("space"):
 		vis_toggle()
+		shown = true
 
 
 func _on_Resume_pressed():
 	$click.play()
 	vis_toggle()
-
+	shown = false
 
 func vis_toggle():
 	if $ColorRect.visible:

@@ -67,9 +67,9 @@ func _process(_delta):
 	if $CanvasLayer/SFX.died == true:
 		yield(get_tree().create_timer(1), "timeout")
 		$CanvasLayer/SFX.died = false
-		get_tree().change_scene("res://Scenes/Title Screen.tscn")
-		$CanvasLayer/AnimationPlayer.play("RESET")
-		$Kraken.follow = false
+		get_tree().change_scene("res://Pause & Death/Death.tscn")
+#		$CanvasLayer/AnimationPlayer.play("RESET")
+#		$Kraken.follow = false
 #	if $Kraken.follow != true:
 #		$Kraken.global_position.x = lerp($Kraken.global_position.x, 341, 0.1)  # make Kraken follow player, lerp position to slow down
 	

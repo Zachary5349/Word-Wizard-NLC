@@ -751,19 +751,16 @@ script = ExtResource( 1 )
 
 [node name="background2" type="TextureRect" parent="."]
 modulate = Color( 1, 0.984314, 0.984314, 1 )
-margin_left = 1110.0
-margin_top = 210.0
-margin_right = 1813.0
-margin_bottom = 740.0
-rect_rotation = 126.5
-rect_scale = Vector2( 1.16956, 1.99294 )
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 687.0
+margin_bottom = 382.0
 texture = ExtResource( 4 )
 expand = true
-stretch_mode = 2
-flip_h = true
-flip_v = true
+stretch_mode = 1
 
 [node name="background1" type="TextureRect" parent="."]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 0.490196, 0.32549, 0, 1 )
 margin_left = 1.0
@@ -814,20 +811,19 @@ scale = Vector2( 1.03759, 0.936171 )
 
 [node name="Dragon" type="AnimatedSprite" parent="."]
 light_mask = 0
-position = Vector2( 395, 181 )
+position = Vector2( 398, 181 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 25 )
-
-frame = 3
+frame = 4
 playing = true
 
 [node name="Dragon2" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 0.533333, 0.533333, 1 )
 light_mask = 0
-position = Vector2( 395, 181 )
+position = Vector2( 398, 181 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 4 )
-frame = 8
+frame = 4
 playing = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

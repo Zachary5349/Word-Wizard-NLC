@@ -32,7 +32,8 @@ func _process(delta):
 	
 	#if dead prints dead
 	if $HealthBar.value <= 0:
-		print("YOU DIEED")
+		yield(get_tree().create_timer(1), "timeout")
+		get_tree().change_scene("res://Pause & Death/Death.tscn")
 	elif $HealthBar.value <= 25: #starts low animations on low health
 		$AnimationPlayer.play("low")
 	elif $HealthBar.value <= 60: #starts shaky animation on low health
