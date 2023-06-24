@@ -1,0 +1,208 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/title/lb.png" type="Texture" id=2]
+[ext_resource path="res://Assets/title/box.png" type="Texture" id=3]
+[ext_resource path="res://Assets/title/submit.png" type="Texture" id=4]
+[ext_resource path="res://Multiplayer/Online/Server_Browser.gd" type="Script" id=5]
+[ext_resource path="res://Multiplayer/Online/Server_listener.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=12]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 23
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 17 )
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Searching for servers...." ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "searching"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Searching for servers", "Searching for servers.", "Searching for servers..", "Searching for servers..." ]
+}
+
+[node name="Server_Browser" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -238.0
+margin_top = -165.5
+margin_right = 191.0
+margin_bottom = 130.5
+rect_scale = Vector2( 1.11218, 1.11218 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Manual" type="Button" parent="TextureRect"]
+anchor_left = 0.681
+anchor_top = 0.725
+anchor_right = 0.684
+anchor_bottom = 0.725
+margin_left = -89.3074
+margin_top = 5.50089
+margin_right = 114.406
+margin_bottom = 59.5009
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+text = "manual setup"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Go_back" type="Button" parent="TextureRect"]
+anchor_left = 0.681
+anchor_top = 0.725
+anchor_right = 0.684
+anchor_bottom = 0.725
+margin_left = -276.797
+margin_top = 6.40001
+margin_right = -140.084
+margin_bottom = 60.4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+text = "back"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="leaderboard" type="Button" parent="TextureRect"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -195.0
+margin_top = -105.189
+margin_right = 73.0
+margin_bottom = -42.1894
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+text = "view leaderboard"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Server_ip_text_edit" type="LineEdit" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.981
+margin_top = -67.0776
+margin_right = 128.019
+margin_bottom = -26.0776
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 11 )
+align = 1
+placeholder_text = "Server Ip"
+
+[node name="join_server" type="Button" parent="TextureRect/Server_ip_text_edit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -95.5043
+margin_top = 16.7017
+margin_right = 96.4957
+margin_bottom = 75.7017
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+text = "join server"
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 23.0
+margin_right = -41.0
+margin_bottom = -73.0
+
+[node name="Searching_for_servers" type="Label" parent="TextureRect/VBoxContainer"]
+margin_right = 348.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+custom_fonts/font = SubResource( 18 )
+text = "Searching for servers...."
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/VBoxContainer/Searching_for_servers"]
+autoplay = "searching"
+playback_speed = 0.5
+anims/RESET = SubResource( 19 )
+anims/searching = SubResource( 20 )
+
+[node name="Server_listener" parent="." instance=ExtResource( 6 )]
+
+[connection signal="pressed" from="TextureRect/Manual" to="." method="_on_Manual_pressed"]
+[connection signal="pressed" from="TextureRect/Go_back" to="." method="_on_Go_back_pressed"]
+[connection signal="pressed" from="TextureRect/Server_ip_text_edit/join_server" to="." method="_on_join_server_pressed"]
+[connection signal="new_server" from="Server_listener" to="." method="_on_Server_listener_new_server"]
+[connection signal="remove_server" from="Server_listener" to="." method="_on_Server_listener_remove_server"]

@@ -21,6 +21,11 @@ func _ready():
 
 
 func _process(delta):
+	if $SFX.died:
+		$CanvasLayer/Label.text = "Player 2 Wins!"
+		$AnimationPlayer.play("win")
+	if $SFX2.died:
+		$CanvasLayer/Label.text = "Player 1 Wins!"
 	if int($Timer.time_left) >= 10:
 		$CanvasLayer/Label2.text = "00:" + str(int($Timer.time_left))
 	elif int($Timer.time_left) > 0:

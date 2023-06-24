@@ -31,13 +31,17 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 GlobalSignals="*res://ABCscripts/GlobalSignals.gd"
 PromptList="*res://ABCscripts/PromptList.gd"
 PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+Network="*res://Multiplayer/Online/Network.gd"
+Global="*res://Multiplayer/Online/Global.gd"
+Players="*res://Multiplayer/Online/Players.tscn"
 
 [display]
 
 window/size/width=682
 window/size/height=385
 window/size/resizable=false
-window/size/fullscreen=true
+window/size/test_width=682
+window/size/test_height=385
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 

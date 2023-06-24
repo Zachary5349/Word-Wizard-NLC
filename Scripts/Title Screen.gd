@@ -7,6 +7,7 @@ var cursor = load("res://Assets/title/cursor.png")
 var start_time
 
 func _ready():
+	get_tree().change_scene("res://Multiplayer/Online/Network_Setup.tscn")
 #	SilentWolf.Scores.persist_score("xmandubs", 432)
 #	SilentWolf.Scores.persist_score("rockhold", 349)
 #	SilentWolf.Scores.persist_score("Iluvfbla", 357)
@@ -92,3 +93,9 @@ func _on_Exit_pressed():
 	$click.play()
 	yield(get_tree().create_timer(0.2), "timeout")
 	get_tree().quit()
+
+
+func _on_Multiplayer_pressed():
+	$start.play()
+	yield(get_tree().create_timer(1.15), "timeout")
+	get_tree().change_scene("res://Multiplayer/Arena.tscn")

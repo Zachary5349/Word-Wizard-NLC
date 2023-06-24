@@ -27,14 +27,6 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
-[sub_resource type="DynamicFont" id=12]
-size = 35
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxEmpty" id=17]
-
 [sub_resource type="DynamicFontData" id=13]
 font_path = "res://Assets/Fblapix-Regular.ttf"
 
@@ -45,6 +37,14 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 13 )
 
 [sub_resource type="StyleBoxEmpty" id=43]
+
+[sub_resource type="DynamicFont" id=12]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="DynamicFontData" id=20]
 font_path = "res://Assets/Fblapix-Regular.ttf"
@@ -165,12 +165,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -148.0
-margin_top = 6.0
+margin_top = -7.0
 margin_right = 148.0
-margin_bottom = 168.0
+margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 17
+custom_constants/separation = 12
 
 [node name="NewGame" type="Button" parent="Buttons"]
 margin_right = 296.0
@@ -185,10 +185,24 @@ text = "STart Game"
 flat = true
 icon_align = 1
 
-[node name="LevelSelect" type="Button" parent="Buttons"]
-margin_top = 53.0
+[node name="Multiplayer" type="Button" parent="Buttons"]
+margin_top = 48.0
 margin_right = 296.0
-margin_bottom = 89.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.768627, 0.768627, 0.768627, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/focus = SubResource( 43 )
+text = "Multiplayer"
+flat = true
+icon_align = 1
+
+[node name="LevelSelect" type="Button" parent="Buttons"]
+margin_top = 96.0
+margin_right = 296.0
+margin_bottom = 132.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
@@ -200,9 +214,9 @@ flat = true
 icon_align = 1
 
 [node name="Leaderboard" type="Button" parent="Buttons"]
-margin_top = 106.0
+margin_top = 144.0
 margin_right = 296.0
-margin_bottom = 142.0
+margin_bottom = 180.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
@@ -280,6 +294,9 @@ volume_db = -30.0
 [connection signal="mouse_entered" from="Buttons/NewGame" to="." method="_on_NewGame_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/NewGame" to="." method="_on_NewGame_mouse_exited"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="mouse_entered" from="Buttons/Multiplayer" to="." method="_on_Leaderboard_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Multiplayer" to="." method="_on_Leaderboard_mouse_exited"]
+[connection signal="pressed" from="Buttons/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="mouse_entered" from="Buttons/LevelSelect" to="." method="_on_LevelSelect_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/LevelSelect" to="." method="_on_LevelSelect_mouse_exited"]
 [connection signal="pressed" from="Buttons/LevelSelect" to="." method="_on_LevelSelect_pressed"]
