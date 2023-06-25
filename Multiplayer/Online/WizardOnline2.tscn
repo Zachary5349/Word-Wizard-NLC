@@ -1,0 +1,154 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://Multiplayer/player2_ani/playerbackrun1.png" type="Texture" id=1]
+[ext_resource path="res://Multiplayer/player2_atk_ani/9.png" type="Texture" id=2]
+[ext_resource path="res://Multiplayer/player2_atk_ani/8.png" type="Texture" id=3]
+[ext_resource path="res://Multiplayer/player2_melee/3.png" type="Texture" id=4]
+[ext_resource path="res://Multiplayer/player2_melee/4.png" type="Texture" id=5]
+[ext_resource path="res://Multiplayer/player2_melee/0.png" type="Texture" id=6]
+[ext_resource path="res://Multiplayer/player2_melee/5.png" type="Texture" id=7]
+[ext_resource path="res://Multiplayer/player2_atk_ani/7.png" type="Texture" id=8]
+[ext_resource path="res://Multiplayer/player2_melee/8.png" type="Texture" id=9]
+[ext_resource path="res://Multiplayer/player2_melee/2.png" type="Texture" id=10]
+[ext_resource path="res://Multiplayer/player2_melee/1.png" type="Texture" id=11]
+[ext_resource path="res://Multiplayer/player2_melee/7.png" type="Texture" id=12]
+[ext_resource path="res://Multiplayer/player2_melee/6.png" type="Texture" id=13]
+[ext_resource path="res://Multiplayer/player2_atk_ani/5.png" type="Texture" id=14]
+[ext_resource path="res://Multiplayer/player2_atk_ani/6.png" type="Texture" id=15]
+[ext_resource path="res://Multiplayer/player2_atk_ani/1.png" type="Texture" id=16]
+[ext_resource path="res://Multiplayer/player2_ani/player2frontrunning1.png" type="Texture" id=17]
+[ext_resource path="res://Multiplayer/player2_ani/player2front.png" type="Texture" id=18]
+[ext_resource path="res://Multiplayer/player2_atk_ani/4.png" type="Texture" id=19]
+[ext_resource path="res://Multiplayer/player2_ani/player1frontrunning2.png" type="Texture" id=20]
+[ext_resource path="res://Multiplayer/player2_ani/hurt2.png" type="Texture" id=21]
+[ext_resource path="res://Multiplayer/player2_ani/hurt3.png" type="Texture" id=22]
+[ext_resource path="res://Multiplayer/Online/WizardOnline2.gd" type="Script" id=23]
+[ext_resource path="res://Multiplayer/player2_ani/playersiderun2.png" type="Texture" id=24]
+[ext_resource path="res://Multiplayer/player2_ani/player1front.png" type="Texture" id=25]
+[ext_resource path="res://Multiplayer/player2_ani/player1frontrunning1.png" type="Texture" id=26]
+[ext_resource path="res://Multiplayer/player2_ani/playerbackrun2.png" type="Texture" id=27]
+[ext_resource path="res://Multiplayer/player2_ani/player2frontrunning2.png" type="Texture" id=28]
+[ext_resource path="res://Multiplayer/player2_ani/player1back.png" type="Texture" id=29]
+[ext_resource path="res://Multiplayer/player2_ani/player1side.png" type="Texture" id=30]
+[ext_resource path="res://Multiplayer/player2_atk_ani/2.png" type="Texture" id=31]
+[ext_resource path="res://Multiplayer/player2_ani/playersiderun1.png" type="Texture" id=32]
+[ext_resource path="res://icon.png" type="Texture" id=33]
+[ext_resource path="res://Pause & Death/DeathAnim/7.png" type="Texture" id=34]
+[ext_resource path="res://Pause & Death/DeathAnim/8.png" type="Texture" id=35]
+[ext_resource path="res://Pause & Death/DeathAnim/6.png" type="Texture" id=36]
+[ext_resource path="res://Pause & Death/DeathAnim/9.png" type="Texture" id=37]
+[ext_resource path="res://Pause & Death/DeathAnim/4.png" type="Texture" id=38]
+[ext_resource path="res://Pause & Death/DeathAnim/5.png" type="Texture" id=39]
+[ext_resource path="res://Pause & Death/DeathAnim/2.png" type="Texture" id=40]
+[ext_resource path="res://Pause & Death/DeathAnim/1.png" type="Texture" id=41]
+[ext_resource path="res://Pause & Death/DeathAnim/3.png" type="Texture" id=42]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 8.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 31 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "atk",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "backidle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "backrun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "die",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "frontidle",
+"speed": 0.13
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 20 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 28 ), ExtResource( 17 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "frontrun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "melee",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "sideidle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "siderun",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D" groups=["OnlinePlayer"]]
+position = Vector2( 0, 1 )
+script = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+frames = SubResource( 1 )
+animation = "die"
+frame = 3
+playing = true
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite/Area2D"]
+position = Vector2( 1, 1 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( -6, -19, 11, -19, 20, -14, 22, -6, 22, 3, 17, 10, 11, 12, 2, 12, -6, 9 )
+disabled = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="NetworkTickRate" type="Timer" parent="."]
+wait_time = 0.03
+autostart = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 33 )
+
+[node name="Reload_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -1 )
+shape = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="AnimatedSprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="NetworkTickRate" to="." method="_on_NetworkTickRate_timeout"]
+[connection signal="timeout" from="Reload_timer" to="." method="_on_Reload_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

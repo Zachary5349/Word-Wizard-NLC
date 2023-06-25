@@ -1,13 +1,16 @@
 extends Node
 
 const DEFAULT_PORT = 28960
-const MAX_CLIENTS = 6
+const MAX_CLIENTS = 2
 
 var server = null
 var client = null
 
 var ip_address = ""
 var current_player_username = ""
+
+var networked_object_name_index = 0 setget networked_object_name_index_set
+puppet var puppet_networked_object_name_index = 0 setget puppet_networked_object_name_index_set
 
 func _ready() -> void:
 	if OS.get_name() == "Windows":
@@ -31,8 +34,26 @@ func join_server() -> void:
 	client.create_client(ip_address, DEFAULT_PORT)
 	get_tree().set_network_peer(client)
 	
+func reset_network_connection() -> void:
+	if get_tree().has_network_peer():
+		get_tree().network_peer = null
+	
 func _connected_to_server() -> void:
 	print("Successfully connected to the server")
 	
 func _server_diconnected() -> void:
 	print("Disconnected from the server")
+	for child in Persistent_Nodes.get_children():
+		if child.is_in_group("Net"):
+			child.queue_free()
+			
+	reset_network_connection()
+
+func puppet_networked_object_name_index_set(new_value):
+	networked_object_name_index = new_value
+	
+func networked_object_name_index_set(new_value):
+	networked_object_name_index = new_value
+	
+	if get_tree().is_network_server():
+		rset("puppet_networked_object_name_index", networked_object_name_index)

@@ -8,7 +8,11 @@ var p2_total = 0
 var p_turn = 0
 signal turn_end
 
+var finished = false
+var process = true
+
 func _ready():
+	process = true
 	Master.mode = "mp"
 	$AnimationPlayer.play("intro")
 	$Player1.move = false
@@ -21,33 +25,44 @@ func _ready():
 
 
 func _process(delta):
-	if $SFX.died:
-		$CanvasLayer/Label.text = "Player 2 Wins!"
-		$AnimationPlayer.play("win")
-	if $SFX2.died:
-		$CanvasLayer/Label.text = "Player 1 Wins!"
-	if int($Timer.time_left) >= 10:
-		$CanvasLayer/Label2.text = "00:" + str(int($Timer.time_left))
-	elif int($Timer.time_left) > 0:
-		$CanvasLayer/Label2.text = "00:0" + str(int($Timer.time_left))
-	else:
-		$CanvasLayer/Label2.text = "00:00"
-		
-	if $Player1.global_position.y > $Player2.global_position.y:
-		$Player1.z_index = 3
-		$Player2.z_index = 2
-	else:
-		$Player2.z_index = 3
-		$Player1.z_index = 2
-	if p_turn > 2:
-		if p1_shots >= 10:
-			$CanvasLayer/shots1.text = str(p1_shots)
+	if process == true:
+		if $AnimationPlayer.current_animation != "finished":
+			if $SFX.died:
+				finished = true
+				$CanvasLayer/Label.text = "Player 2 Wins!"
+				$AnimationPlayer.play("win")
+				$CanvasLayer/back2.show()
+			if $SFX2.died:
+				finished = true
+				$CanvasLayer/Label.text = "Player 1 Wins!"
+				$AnimationPlayer.play("win")
+				$CanvasLayer/back2.show()
 		else:
-			$CanvasLayer/shots1.text = "0" + str(p1_shots)
-		if p2_shots >= 10:
-			$CanvasLayer/shots2.text = str(p2_shots)
+			$Player1.move = false
+			$Player2.move = false
+			
+		if int($Timer.time_left) >= 10:
+			$CanvasLayer/Label2.text = "00:" + str(int($Timer.time_left))
+		elif int($Timer.time_left) > 0:
+			$CanvasLayer/Label2.text = "00:0" + str(int($Timer.time_left))
 		else:
-			$CanvasLayer/shots2.text = "0" + str(p2_shots)
+			$CanvasLayer/Label2.text = "00:00"
+			
+		if $Player1.global_position.y > $Player2.global_position.y:
+			$Player1.z_index = 3
+			$Player2.z_index = 2
+		else:
+			$Player2.z_index = 3
+			$Player1.z_index = 2
+		if p_turn > 2:
+			if p1_shots >= 10:
+				$CanvasLayer/shots1.text = str(p1_shots)
+			else:
+				$CanvasLayer/shots1.text = "0" + str(p1_shots)
+			if p2_shots >= 10:
+				$CanvasLayer/shots2.text = str(p2_shots)
+			else:
+				$CanvasLayer/shots2.text = "0" + str(p2_shots)
 
 
 func _turn():
@@ -70,6 +85,7 @@ func _turn():
 
 
 func _on_play_pressed():
+	$CanvasLayer/back2.hide()
 	$click.play()
 	$CanvasLayer/play.visible = false
 	$CanvasLayer/instructions.visible = false
@@ -116,9 +132,11 @@ func _on_Timer_timeout():
 
 
 func _on_instructions_pressed():
+	$CanvasLayer/back2.hide()
 	$click.play()
 	$CanvasLayer/Label.visible = false
 	$CanvasLayer/play.visible = false
+	$CanvasLayer/play2.visible = false
 	$CanvasLayer/instructions.visible = false
 	$CanvasLayer/instr.visible = true
 	$CanvasLayer/back.visible = true
@@ -130,7 +148,10 @@ func _on_back_pressed():
 	$CanvasLayer/back.visible = false
 	$CanvasLayer/Label.visible = true
 	$CanvasLayer/play.visible = true
+	$CanvasLayer/play2.visible = true
 	$CanvasLayer/instructions.visible = true
+	$CanvasLayer/back2.show()
+	
 
 
 func _on_back_mouse_entered():
@@ -143,3 +164,35 @@ func _on_back_mouse_exited():
 
 func _on_back_button_down():
 	$AnimationPlayer2.play("backd")
+
+
+func _on_back2_button_down():
+	$CanvasLayer/back2/AnimationPlayer.play("backd")
+
+
+func _on_back2_mouse_exited():
+	$CanvasLayer/back2/AnimationPlayer.play("RESET")
+
+
+func _on_back2_mouse_entered():
+	$CanvasLayer/back2/AnimationPlayer.play("backhover")
+
+
+func _on_play2_pressed():
+	process = false
+	$Player1.queue_free()
+	$Player2.queue_free()
+	$CanvasLayer/back2.hide()
+	$click.play()
+	$CanvasLayer/play.visible = false
+	$CanvasLayer/play2.visible = false
+	$CanvasLayer/instructions.visible = false
+	$CanvasLayer/Label.hide()
+	$CanvasLayer/Network_Setup.show()
+	$CanvasLayer/Network_Setup/CanvasLayer.show()
+
+
+func _on_Go_back_pressed():
+#	get_tree().change_scene("res://Scenes/Title Screen.tscn")
+#	get_tree().change_scene("res://Multiplayer/Arena.tscn")
+	get_tree().reload_current_scene()

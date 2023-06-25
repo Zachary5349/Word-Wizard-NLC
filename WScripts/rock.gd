@@ -6,8 +6,10 @@ var target = Vector2.ZERO
 var target_global = Vector2.ZERO
 var grav = 0
 var rot_degree
+var move = true
 
 func _ready():
+	move = true
 	#allows randomizations
 	randomize()
 	
@@ -19,15 +21,23 @@ func _ready():
 	grav = speed*2 - (target.y - position.y)
 	
 	#sets the rotation modifier to a random number
-	rot_degree = rand_range(0.07,0.15)
+#	rot_degree = rand_range(0.07,0.15)
+	rot_degree = 0.005
 
 func _process(delta):
-	#changes position by values based on distance
-	position.x += xdist/(60*1.5) * Engine.time_scale
-	position.y -= grav/(60*1.5) * Engine.time_scale
+	if $AnimatedSprite.animation != "break":
+#		print("dfgdgd")
+		#changes position by values based on distance
+		position.x += xdist/(60*1.5) * Engine.time_scale
+		position.y -= grav/(60*1.5) * Engine.time_scale
+		
+		#increases the gravity, rotation, and degree of rotation
+		grav -= speed/(71*.37) * Engine.time_scale
+		rotation += rot_degree * Engine.time_scale
+		rot_degree /= (.015 * Engine.time_scale) + 1
 	
-	#increases the gravity, rotation, and degree of rotation
-	grav -= speed/(71*.37) * Engine.time_scale
-	rotation += rot_degree * Engine.time_scale
-	rot_degree /= (.015 * Engine.time_scale) + 1
-	
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "break":
+		queue_free()

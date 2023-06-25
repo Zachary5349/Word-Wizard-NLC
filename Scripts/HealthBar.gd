@@ -20,6 +20,8 @@ func _ready():
 	value = $HealthBar.value
 
 func _process(delta):
+	if get_tree().current_scene.name == "Game":
+		show()
 	#sets the red and green tints of the healthbar to the current values 
 	$HealthBar.tint_progress.r8 = R
 	$HealthBar.tint_progress.g8 = G
@@ -29,7 +31,7 @@ func _process(delta):
 	elif damage_cooldown > 0:
 		damage_cooldown -= 1
 		
-	if $HealthBar.value <= 0:
+	if $HealthBar.value <= 10:
 		died = true
 	elif $HealthBar.value <= 25:
 		$AnimationPlayer.play("low")
@@ -59,7 +61,6 @@ func _on_Player_HealthUpdate(damage):
 
 
 func _on_Player2_HealthUpdate(attack_damage):
-	print("happened")
 	if damage_cooldown <= 0:
 		if value <= max_value/2:
 			G -= 201/$HealthBar.max_value * (attack_damage*2)

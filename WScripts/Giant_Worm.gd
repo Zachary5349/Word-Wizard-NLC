@@ -83,13 +83,17 @@ func _process(delta):
 			elif attack_phase == 2 and not once2:
 				$burst_noise.stop()
 				for rocks in rock_list:
+#					rocks.move = false
+#					print(rocks.move)
+#					
 					if sqrt(pow(float(player.x - rocks.target_global.x), 2.0) + pow(float(player.y - rocks.target_global.y), 2.0)) <= 45.0:
 						emit_signal("attack", 10)
-					remove_child(rocks)
+					rocks.get_node("AnimatedSprite").play("break")
+#					remove_child(rocks)
 				rock_list = []
 				for trget2 in target_list:
-					remove_child(trget2)
-				target_list = []
+					remove_target(trget2)
+#				target_list = []
 				$AttackTimer3.start()
 				once2 = true
 			
@@ -156,6 +160,13 @@ func _on_AttackTimer3_timeout():
 func _on_Giant_Worm_child_entered_tree(node):
 	if node.name.substr(0,6) == "spikes":
 		node.frame = 0
-		print("here")
+#		print("here")
 		yield(get_tree().create_timer(2.45), "timeout")
 		node.queue_free()
+		
+		
+func remove_target(node):
+	yield(get_tree().create_timer(0.5), "timeout")
+	print("fdgdfg")	
+	node.queue_free()
+	target_list.remove(0)

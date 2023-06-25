@@ -214,7 +214,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1.6, 4.3, 6.5, 8.5, 8.8, 9.1, 9.4, 9.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ "the worm is coming!", "you need to use your energy wand to power the spires!", "unscramble the words on the Scroll!", "and make sure to avoid the worm's attacks
+"values": [ "the worm is coming!", "you need to use your energy wand to power the spires!", "unscramble the words on the Scroll!", "and make sure to avoid the worm's attacks!
 
 Good luck!", "", "3", "2", "1", "Go!" ]
 }

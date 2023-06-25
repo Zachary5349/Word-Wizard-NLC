@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Assets/player_ani/player1back.png" type="Texture" id=1]
 [ext_resource path="res://Assets/player_ani/player2frontrunning1.png" type="Texture" id=2]
@@ -32,6 +32,16 @@
 [ext_resource path="res://Multiplayer/player1_melee/4.png" type="Texture" id=30]
 [ext_resource path="res://Multiplayer/player1_melee/5.png" type="Texture" id=31]
 [ext_resource path="res://Multiplayer/player1_melee/1.png" type="Texture" id=32]
+[ext_resource path="res://icon.png" type="Texture" id=33]
+[ext_resource path="res://Pause & Death/DeathAnim/7.png" type="Texture" id=34]
+[ext_resource path="res://Pause & Death/DeathAnim/8.png" type="Texture" id=35]
+[ext_resource path="res://Pause & Death/DeathAnim/6.png" type="Texture" id=36]
+[ext_resource path="res://Pause & Death/DeathAnim/9.png" type="Texture" id=37]
+[ext_resource path="res://Pause & Death/DeathAnim/4.png" type="Texture" id=38]
+[ext_resource path="res://Pause & Death/DeathAnim/5.png" type="Texture" id=39]
+[ext_resource path="res://Pause & Death/DeathAnim/2.png" type="Texture" id=40]
+[ext_resource path="res://Pause & Death/DeathAnim/1.png" type="Texture" id=41]
+[ext_resource path="res://Pause & Death/DeathAnim/3.png" type="Texture" id=42]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 8.0
@@ -53,6 +63,11 @@ animations = [ {
 "loop": true,
 "name": "backrun",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "die",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 16 ) ],
 "loop": true,
@@ -85,7 +100,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["OnlinePlayer"]]
 position = Vector2( 0, 1 )
 script = ExtResource( 23 )
 
@@ -97,6 +112,7 @@ shape = SubResource( 4 )
 position = Vector2( 0, -2 )
 frames = SubResource( 1 )
 animation = "frontidle"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite"]
@@ -112,6 +128,25 @@ disabled = true
 wait_time = 0.03
 autostart = true
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 33 )
+
+[node name="Reload_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -1 )
+shape = SubResource( 4 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="AnimatedSprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="NetworkTickRate" to="." method="_on_NetworkTickRate_timeout"]
+[connection signal="timeout" from="Reload_timer" to="." method="_on_Reload_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
