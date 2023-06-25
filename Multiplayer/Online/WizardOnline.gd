@@ -13,7 +13,7 @@ var kb_modifier = 0.5
 var hurt = false
 var cooldown = false
 var can_shoot = true
-
+var melee = false
 puppet var puppet_hp = 100 setget puppet_hp_set
 puppet var puppet_position = Vector2(0,0) setget puppet_position_set
 puppet var puppet_velocity = Vector2()
@@ -44,6 +44,9 @@ func _process(delta):
 	if username_text_instance != null and is_instance_valid(username_text_instance):
 		username_text_instance.name = "username" + name
 	if is_network_master() and visible:
+		for node in get_parent().get_children():
+			if node.is_in_group("OnlinePlayer") and not node == self:
+				node.rpc("_anim")
 		velocity = Vector2()
 		if move == true:
 			if Input.is_action_pressed("move_right"):
@@ -68,6 +71,17 @@ func _process(delta):
 			$AnimatedSprite.flip_h = velocity.x < 0
 			$AnimatedSprite.flip_v = false
 			$Reload_timer.start()
+		if Input.is_action_pressed("melee1"):
+			cooldown = true
+			melee = true
+			$AnimatedSprite.animation = "melee"
+			yield(get_tree().create_timer(0.17), "timeout")
+			$AnimatedSprite/Area2D/CollisionPolygon2D.disabled = false
+			yield(get_tree().create_timer(0.25), "timeout")
+			$AnimatedSprite/Area2D/CollisionPolygon2D.disabled = true
+			melee = false
+			yield(get_tree().create_timer(0.15),"timeout")
+			cooldown = false
 		
 	else:
 		rotation_degrees = lerp(rotation_degrees, puppet_rotation, delta * 8)
@@ -77,11 +91,16 @@ func _process(delta):
 	#	position.x = clamp(position.x, 0, screen_size.x)
 	#	position.y = clamp(position.y, 0, screen_size.y)
 	if hp <= 0:
+		can_shoot = false
 		rpc("hit_by_damager", 100)
 		if username_text_instance != null and is_instance_valid(username_text_instance):
 			username_text_instance.visible = false
 		$AnimatedSprite.animation = "die"
 		yield($AnimatedSprite, "animation_finished")
+		for node in get_parent().get_children():
+			if node.is_in_group("OnlinePlayer") and not node == self:
+				get_parent().get_node("CanvasLayer/Label").show()
+				get_parent().get_node("CanvasLayer/Label").text = node.username + "wins!"
 		queue_free()
 	rpc("_anim")
 	
@@ -90,6 +109,8 @@ remotesync func _anim():
 	$AnimatedSprite.play()
 	if atk == true:
 		$AnimatedSprite.animation = "atk"
+	elif melee == true:
+		$AnimatedSprite.animation = "melee"
 	elif hurt == true:
 		$AnimatedSprite.animation = "hurt"
 		$AnimatedSprite.flip_h = velocity.x < 0
@@ -121,18 +142,7 @@ remotesync func _anim():
 	else:
 		$AnimatedSprite/Area2D.scale.x = 1
 
-func _damage(dmg):
-	emit_signal("HealthUpdate", dmg)
-	hurt = true
 
-	
-func shoot(target_pos):
-	var bullet = player_bullet.instance()
-	get_parent().add_child(bullet)
-	bullet.global_position = global_position
-	bullet.look_at(target_pos)
-	bullet.velocity = target_pos - bullet.global_position
-	
 	
 #func _input(event):
 #	if is_network_master():
@@ -160,15 +170,9 @@ func shoot(target_pos):
 #				cooldown = false
 
 
-func _on_Area2D_body_entered(body):
-	if body.name == "Player2":
-		body._damage(15)
-
-
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "melee" || "atk":
 		atk = false
-
 
 func puppet_position_set(new_value) -> void:
 	puppet_position = new_value
@@ -224,11 +228,21 @@ func _on_Reload_timer_timeout():
 
 
 func _on_Hitbox_area_entered(area):
+	if area.get_parent().name == "AnimatedSprite":
+		if area.get_parent() in self.get_children():
+			pass
+		else:
+			rpc("hit_by_damager", 15)
 	if get_tree().is_network_server():
-		if area.is_in_group("Player_damager") and area.get_parent().player_owner != int(name):
+		if area.get_parent().name == "AnimatedSprite":
+			if area.get_parent() in self.get_children():
+				pass
+			else:
+				rpc("hit_by_damager", 15)
+		elif area.is_in_group("Player_damager") and area.get_parent().player_owner != int(name):
 			rpc("hit_by_damager", area.get_parent().damage)
-			
 			area.get_parent().queue_free()
+			
 			
 sync func hit_by_damager(damage):
 	hurt = true

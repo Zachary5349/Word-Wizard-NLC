@@ -1,6 +1,7 @@
 extends Control
 
 var player = load("res://Multiplayer/Online/WizardOnline.tscn")
+var player2 = load("res://Multiplayer/Online/WizardOnline2.tscn")
 
 onready var multiplayer_config_ui = $Multiplayer_Configure
 onready var username_text_edit = $Multiplayer_Configure/Username_text_edit
@@ -64,7 +65,7 @@ func instance_player(id) -> void:
 	if id == 1:
 		player_instance = Global.instance_node_at_location(player, Persistent_Nodes, Vector2(83, 197))
 	else:
-		player_instance = Global.instance_node_at_location(player, Persistent_Nodes, Vector2(601, 197))
+		player_instance = Global.instance_node_at_location(player2, Persistent_Nodes, Vector2(601, 197))
 	player_instance.name = str(id)
 	player_instance.set_network_master(id)
 	player_instance.username = username_text_edit.text
