@@ -348,10 +348,10 @@ color = Color( 0, 0, 0, 0.588235 )
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.078
 anchor_bottom = 1.123
-margin_left = -33.0
-margin_top = -29.0
-margin_right = 5.80396
-margin_bottom = 10.645
+margin_left = -38.0
+margin_top = -47.0
+margin_right = 0.803955
+margin_bottom = -7.35501
 color = Color( 0, 0, 0, 1 )
 
 [node name="Cuts" type="Label" parent="CanvasLayer"]

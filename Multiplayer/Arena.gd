@@ -26,7 +26,7 @@ func _ready():
 
 func _process(delta):
 	if process == true:
-		if $AnimationPlayer.current_animation != "finished":
+		if finished != true:
 			if $SFX.died:
 				finished = true
 				$CanvasLayer/Label.text = "Player 2 Wins!"
@@ -86,6 +86,7 @@ func _turn():
 
 func _on_play_pressed():
 	$CanvasLayer/back2.hide()
+	$CanvasLayer/play2.hide()
 	$click.play()
 	$CanvasLayer/play.visible = false
 	$CanvasLayer/instructions.visible = false
@@ -196,3 +197,7 @@ func _on_Go_back_pressed():
 #	get_tree().change_scene("res://Scenes/Title Screen.tscn")
 #	get_tree().change_scene("res://Multiplayer/Arena.tscn")
 	get_tree().reload_current_scene()
+
+
+func _on_back2_pressed():
+	get_tree().change_scene("res://Scenes/Title Screen.tscn")

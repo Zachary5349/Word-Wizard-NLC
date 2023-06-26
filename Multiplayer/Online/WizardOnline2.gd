@@ -39,6 +39,10 @@ func _ready():
 	username_text_instance.player_following = self
 	
 	can_shoot = false
+	
+	yield(get_tree(), "idle_frame")
+	if is_network_master():
+		Global.player_master = self
 
 func _process(delta):
 	if username_text_instance != null and is_instance_valid(username_text_instance):
@@ -97,54 +101,20 @@ func _process(delta):
 			username_text_instance.visible = false
 		$AnimatedSprite.animation = "die"
 		yield($AnimatedSprite, "animation_finished")
-		for node in get_parent().get_children():
-			if node.is_in_group("OnlinePlayer") and not node == self:
-				get_parent().get_node("CanvasLayer/Label").show()
-				get_parent().get_node("CanvasLayer/Label").text = node.username + "wins!"
+#		get_parent().get_node("CanvasLayer/Label").show()
+#		get_parent().get_node("CanvasLayer/Label").text = Master.user1 + "wins!"
+#		for node in get_parent().get_children():
+#			if node.is_in_group("2"):
+#				Persistent_Nodes.get_node("CanvasLayer/Label").show()
+#				Persistent_Nodes.get_node("CanvasLayer/Label").text = node.username + " wins!"
+		if is_network_master():
+			Global.player_master = null
 		queue_free()
+
 	rpc("_anim")
 	
 
-remotesync func _anim():
-	$AnimatedSprite.play()
-	if atk == true:
-		$AnimatedSprite.animation = "atk"
-	elif melee == true:
-		$AnimatedSprite.animation = "melee"
-	elif hurt == true:
-		$AnimatedSprite.animation = "hurt"
-		$AnimatedSprite.flip_h = velocity.x < 0
-		$AnimatedSprite.flip_v = false
-		yield(get_tree().create_timer(0.15),"timeout")
-		hurt = false
-	elif velocity.x != 0:
-		$AnimatedSprite.animation = "siderun"
-		$AnimatedSprite.flip_h = velocity.x < 0
-		if $AnimatedSprite.flip_h:
-			$AnimatedSprite/Area2D.scale_x = -1
-		else:
-			$AnimatedSprite/Area2D.scale_x = 1
-		$AnimatedSprite.flip_v = false
-		last_dir = 2
-	elif velocity.y < 0:
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.animation = "backrun"
-		last_dir = 1
-	elif velocity.y > 0:
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.animation = "frontrun"
-		last_dir = 0
-	else:
-		if last_dir == 0:
-			$AnimatedSprite.animation = "frontidle"
-		elif last_dir == 1: 
-			$AnimatedSprite.animation = "backidle"
-		else:
-			$AnimatedSprite.animation = "sideidle"
-	if $AnimatedSprite.flip_h:
-		$AnimatedSprite/Area2D.scale.x = -1
-	else:
-		$AnimatedSprite/Area2D.scale.x = 1
+
 
 
 	
@@ -227,23 +197,30 @@ sync func instance_bullet(id):
 	Network.networked_object_name_index += 1
 
 
+sync func update_position(pos):
+	global_position = pos
+	puppet_position = pos
+
 func _on_Reload_timer_timeout():
 	cooldown = false
 
 
 func _on_Hitbox_area_entered(area):
+	if area.get_parent().name == "AnimatedSprite":
+		if area.get_parent() in self.get_children():
+			pass
+		else:
+			rpc("hit_by_damager", 15)
 	if get_tree().is_network_server():
 		if area.get_parent().name == "AnimatedSprite":
-			print("dgfefg")
 			if area.get_parent() in self.get_children():
-				print("44")
 				pass
 			else:
 				rpc("hit_by_damager", 15)
 		elif area.is_in_group("Player_damager") and area.get_parent().player_owner != int(name):
 			rpc("hit_by_damager", area.get_parent().damage)
-			
 			area.get_parent().queue_free()
+			
 			
 sync func hit_by_damager(damage):
 	hurt = true
@@ -263,3 +240,45 @@ sync func destroy() -> void:
 	visible = false
 	$CollisionShape2D.disabled = true
 	$Hitbox/CollisionShape2D.disabled = true
+
+func _exit_tree() -> void:
+	if is_network_master():
+		Global.player_master = null
+		
+remotesync func _anim():
+	$AnimatedSprite.play()
+	if $AnimatedSprite.animation != "die":
+		if atk == true:
+			$AnimatedSprite.animation = "atk"
+		elif melee == true:
+			$AnimatedSprite.animation = "melee"
+		elif hurt == true:
+			$AnimatedSprite.animation = "hurt"
+			$AnimatedSprite.flip_h = velocity.x < 0
+			$AnimatedSprite.flip_v = false
+			yield(get_tree().create_timer(0.15),"timeout")
+			hurt = false
+		elif velocity.x != 0:
+			$AnimatedSprite.animation = "siderun"
+			$AnimatedSprite.flip_h = velocity.x < 0
+			$AnimatedSprite.flip_v = false
+			last_dir = 2
+		elif velocity.y < 0:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.animation = "backrun"
+			last_dir = 1
+		elif velocity.y > 0:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.animation = "frontrun"
+			last_dir = 0
+		else:
+			if last_dir == 0:
+				$AnimatedSprite.animation = "frontidle"
+			elif last_dir == 1: 
+				$AnimatedSprite.animation = "backidle"
+			else:
+				$AnimatedSprite.animation = "sideidle"
+		if $AnimatedSprite.flip_h:
+			$AnimatedSprite/Area2D.scale.x = -1
+		else:
+			$AnimatedSprite/Area2D.scale.x = 1

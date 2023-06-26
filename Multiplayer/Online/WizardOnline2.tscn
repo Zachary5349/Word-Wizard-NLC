@@ -101,7 +101,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D" groups=["OnlinePlayer"]]
+[node name="Player" type="KinematicBody2D" groups=["2", "OnlinePlayer"]]
 position = Vector2( 0, 1 )
 script = ExtResource( 23 )
 
@@ -112,8 +112,8 @@ shape = SubResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -2 )
 frames = SubResource( 1 )
-animation = "die"
-frame = 8
+animation = "frontidle"
+frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 43 )

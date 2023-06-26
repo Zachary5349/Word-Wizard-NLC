@@ -152,6 +152,7 @@ visible = false
 position = Vector2( 95, 231 )
 scale = Vector2( 5.07031, 5.07031 )
 frames = SubResource( 10 )
+frame = 3
 playing = true
 
 [node name="Logo" type="TextureRect" parent="."]

@@ -6,7 +6,7 @@
 [ext_resource path="res://Pause & Death/DeathText.gd" type="Script" id=4]
 [ext_resource path="res://Pause & Death/DeathAnim/1.png" type="Texture" id=5]
 [ext_resource path="res://Pause & Death/DeathAnim/3.png" type="Texture" id=6]
-[ext_resource path="res://Pause & Death/DeathAnim/2.png" type="Texture" id=7]
+[ext_resource path="res://Pause & Death/DeathAnim/11.png" type="Texture" id=7]
 [ext_resource path="res://Pause & Death/DeathAnim/4.png" type="Texture" id=8]
 [ext_resource path="res://Pause & Death/DeathAnim/5.png" type="Texture" id=9]
 [ext_resource path="res://Pause & Death/DeathAnim/7.png" type="Texture" id=10]

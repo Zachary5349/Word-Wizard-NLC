@@ -11,7 +11,7 @@ height = 0.0
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0.234272, 124.423, -0.234272, -124.423, -226.162, 10.9049, -143.728, 1.74434, 143.728, -1.74434, 32.2339, -247.419, 0.0421438, -140.207, -0.0421438, 140.207, 292.838, 9.90486, 131.18, -2.00226, -131.18, 2.00226, 38.8595, 273.09, -2.66968, 133.286, 2.66968, -133.286, -225.162, 9.90486 )
+"points": PoolVector2Array( 0.234272, 124.423, -0.234272, -124.423, -226.162, 10.9049, -143.728, 1.74434, 143.728, -1.74434, 26.2866, -252.833, 0.0421438, -140.207, -0.0421438, 140.207, 292.838, 9.90486, 131.18, -2.00226, -131.18, 2.00226, 38.8595, 273.09, -2.66968, 133.286, 2.66968, -133.286, -225.162, 9.90486 )
 }
 
 [node name="Giant_Worm" type="KinematicBody2D"]
@@ -39,16 +39,15 @@ position = Vector2( 3, -233 )
 scale = Vector2( 2.6, 2.6 )
 z_index = 1
 animation = "stun"
-frame = 1
 
 [node name="TargetPath" type="Path2D" parent="YSort"]
-position = Vector2( -20.786, -21.4548 )
-scale = Vector2( 1.35838, 1.24301 )
+position = Vector2( -38.2773, -35.0964 )
+scale = Vector2( 1.41811, 1.29296 )
 curve = SubResource( 3 )
 
 [node name="TargetPathFollow" type="PathFollow2D" parent="YSort/TargetPath"]
 position = Vector2( -226.162, 10.9049 )
-rotation = -1.56235
+rotation = -1.56162
 
 [node name="stun_noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

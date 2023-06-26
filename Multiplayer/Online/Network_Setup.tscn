@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Multiplayer/Online/Network_Setup.gd" type="Script" id=2]
 [ext_resource path="res://Assets/title/lb.png" type="Texture" id=3]
+[ext_resource path="res://Multiplayer/Online/CanvasLayer.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFontData" id=31]
 font_path = "res://Assets/Fblapix-Regular.ttf"
@@ -113,6 +114,7 @@ max_length = 10
 placeholder_text = "Enter Username"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
 
 [node name="Device_ip_address" type="Label" parent="CanvasLayer"]
 anchor_top = 1.0

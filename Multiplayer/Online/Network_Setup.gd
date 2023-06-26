@@ -10,6 +10,9 @@ onready var device_ip_address = $CanvasLayer/Device_ip_address
 onready var start_game = $CanvasLayer/Start_game
 
 func _ready() -> void:
+#	$CanvasLayer.ready()
+	Global.ui = $CanvasLayer
+	print(Global.ui)
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
 	get_tree().connect("connected_to_server", self, "_connected_to_server")
@@ -26,7 +29,8 @@ func _process(delta):
 			start_game.show()
 		else:
 			start_game.hide()
-			
+#	if Global.ui != null:
+#		print(Global.ui)
 
 func _player_connected(id) -> void:
 	print("Player " + str (id) + " has connected")
@@ -42,6 +46,7 @@ func _player_disconnected(id) -> void:
 func _on_Create_Server_pressed():
 	if username_text_edit.text != "":
 		Network.current_player_username = username_text_edit.text
+		Master.user1 = username_text_edit.text
 		username_text_edit.hide()
 		multiplayer_config_ui.hide()
 		Network.create_server()
@@ -50,6 +55,7 @@ func _on_Create_Server_pressed():
 	
 func _on_Join_Server_pressed():
 	if username_text_edit.text != "":
+		Master.user2 = username_text_edit.text
 		multiplayer_config_ui.hide()
 		username_text_edit.hide()
 		Global.instance_node(load("res://Multiplayer/Online/Server_Browser.tscn"), self)
@@ -79,4 +85,9 @@ sync func switch_to_game() -> void:
 	for child in Persistent_Nodes.get_children():
 		if child.is_in_group("OnlinePlayer"):
 			child.can_shoot = true
+	print(Global.ui)
 	get_tree().change_scene("res://Multiplayer/Online/Game.tscn")
+	
+func _exit_tree():
+#	Global.ui = null
+	pass

@@ -4,6 +4,10 @@ extends Node
 var start_time = OS.get_unix_time()
 var current = "title"
 var mode = "title"
+
+var user1 = ""
+var user2 = ""
+
 func _ready():
 	SilentWolf.configure({
 		"api_key": "eKFbtGHb9a5AsYsiwdPfvaWHjEIa2qe9aHfgOZOW",

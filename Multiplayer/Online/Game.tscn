@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/backb.png" type="Texture" id=2]
 [ext_resource path="res://Assets/letters/slash.png" type="Texture" id=3]
 [ext_resource path="res://Multiplayer/arena.png" type="Texture" id=4]
 [ext_resource path="res://Multiplayer/Online/Game.gd" type="Script" id=5]
+[ext_resource path="res://Multiplayer/Online/Camera2D.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Input.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=13]
 
@@ -113,6 +114,13 @@ tracks/0/keys = {
 [node name="Game" type="Node2D"]
 z_index = -1
 script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -798.0
+margin_top = -622.0
+margin_right = 1594.0
+margin_bottom = 1151.0
+color = Color( 0.0627451, 0, 0.0235294, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 684.0
@@ -257,7 +265,6 @@ margin_bottom = 14.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 23 )
 align = 1
-percent_visible = 0.934343
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 visible = false
@@ -334,6 +341,7 @@ flat = true
 expand_icon = true
 
 [node name="back2" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 13.0
 margin_top = 312.0
 margin_right = 123.0
@@ -366,3 +374,6 @@ position = Vector2( 83, 197 )
 
 [node name="2" type="Position2D" parent="Spawn_locations"]
 position = Vector2( 601, 197 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource( 6 )

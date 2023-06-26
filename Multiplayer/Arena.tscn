@@ -977,10 +977,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 92.5
-margin_top = 182.5
-margin_right = 589.5
-margin_bottom = 206.5
+margin_left = -248.5
+margin_top = -10.0
+margin_right = 248.5
+margin_bottom = 14.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 23 )
 text = "Welcome to the wizard arena!"
@@ -1252,6 +1252,7 @@ position = Vector2( 601, 197 )
 [connection signal="button_down" from="CanvasLayer/back2" to="." method="_on_back2_button_down"]
 [connection signal="mouse_entered" from="CanvasLayer/back2" to="." method="_on_back2_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/back2" to="." method="_on_back2_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/back2" to="." method="_on_back2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Network_Setup/Multiplayer_Configure/Create_Server" to="CanvasLayer/Network_Setup" method="_on_Create_Server_pressed"]
 [connection signal="pressed" from="CanvasLayer/Network_Setup/Multiplayer_Configure/Join_Server" to="CanvasLayer/Network_Setup" method="_on_Join_Server_pressed"]
 [connection signal="pressed" from="CanvasLayer/Network_Setup/CanvasLayer/Start_game" to="CanvasLayer/Network_Setup" method="_on_Start_game_pressed"]

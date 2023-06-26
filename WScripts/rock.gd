@@ -28,8 +28,8 @@ func _process(delta):
 	if $AnimatedSprite.animation != "break":
 #		print("dfgdgd")
 		#changes position by values based on distance
-		position.x += xdist/(60*1.5) * Engine.time_scale
-		position.y -= grav/(60*1.5) * Engine.time_scale
+		position.x += xdist/(60*1.7) * Engine.time_scale
+		position.y -= grav/(50*1.9) * Engine.time_scale
 		
 		#increases the gravity, rotation, and degree of rotation
 		grav -= speed/(71*.37) * Engine.time_scale
