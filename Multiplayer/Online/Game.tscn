@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/backb.png" type="Texture" id=2]
 [ext_resource path="res://Assets/letters/slash.png" type="Texture" id=3]
 [ext_resource path="res://Multiplayer/arena.png" type="Texture" id=4]
 [ext_resource path="res://Multiplayer/Online/Game.gd" type="Script" id=5]
-[ext_resource path="res://Multiplayer/Online/Camera2D.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Input.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=13]
 
@@ -189,14 +188,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -316.0
+margin_left = -39.0
 margin_top = -147.5
-margin_right = -276.0
+margin_right = 1.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 align = 3
-percent_visible = 0.285714
 
 [node name="slash1" type="Sprite" parent="CanvasLayer/shots1"]
 visible = false
@@ -208,15 +206,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -264.0
+margin_left = 13.0
 margin_top = -147.5
-margin_right = -218.0
+margin_right = 59.0
 margin_bottom = -96.5
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 align = 3
 
 [node name="shots2" type="Label" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -235,6 +234,7 @@ position = Vector2( 43, 12 )
 texture = ExtResource( 3 )
 
 [node name="shots22" type="Label" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -248,7 +248,6 @@ custom_fonts/font = SubResource( 4 )
 align = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.760784 )
@@ -267,7 +266,6 @@ custom_fonts/font = SubResource( 23 )
 align = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -318,11 +316,6 @@ custom_styles/focus = SubResource( 7 )
 text = "Play"
 flat = true
 
-[node name="Input" parent="CanvasLayer" instance=ExtResource( 8 )]
-visible = false
-size_flags_horizontal = 5
-size_flags_vertical = 5
-
 [node name="back" type="Button" parent="CanvasLayer"]
 visible = false
 anchor_left = 0.5
@@ -359,6 +352,16 @@ anims/RESET = SubResource( 25 )
 anims/backd = SubResource( 28 )
 anims/backhover = SubResource( 29 )
 
+[node name="Input1" parent="CanvasLayer" instance=ExtResource( 8 )]
+visible = false
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="Input2" parent="CanvasLayer" instance=ExtResource( 8 )]
+visible = false
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -30.0
@@ -375,5 +378,14 @@ position = Vector2( 83, 197 )
 [node name="2" type="Position2D" parent="Spawn_locations"]
 position = Vector2( 601, 197 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource( 6 )
+[node name="turn1_timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="turn2_timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="turns_end" from="." to="." method="_on_Game_turns_end"]
+[connection signal="timeout" from="turn1_timer" to="." method="_on_turn1_timer_timeout"]
+[connection signal="timeout" from="turn2_timer" to="." method="_on_turn2_timer_timeout"]

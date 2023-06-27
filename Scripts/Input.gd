@@ -92,6 +92,7 @@ func _hide():
 		$LineEdit.clear() # clear input
 
 func _end(turn):
+	print("dskjfsdfhbh")
 	if visible == true:
 		emit_signal("word_found")
 		_hide()

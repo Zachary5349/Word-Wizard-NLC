@@ -84,8 +84,8 @@ func _on_Start_game_pressed():
 sync func switch_to_game() -> void:
 	for child in Persistent_Nodes.get_children():
 		if child.is_in_group("OnlinePlayer"):
-			child.can_shoot = true
-	print(Global.ui)
+			child.move = false
+#	print(Global.ui)
 	get_tree().change_scene("res://Multiplayer/Online/Game.tscn")
 	
 func _exit_tree():

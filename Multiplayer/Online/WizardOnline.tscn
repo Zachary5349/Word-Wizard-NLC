@@ -113,7 +113,6 @@ shape = SubResource( 4 )
 position = Vector2( 0, -2 )
 frames = SubResource( 1 )
 animation = "frontidle"
-frame = 1
 playing = true
 script = ExtResource( 43 )
 

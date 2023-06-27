@@ -39,6 +39,7 @@ position = Vector2( 3, -233 )
 scale = Vector2( 2.6, 2.6 )
 z_index = 1
 animation = "stun"
+frame = 1
 
 [node name="TargetPath" type="Path2D" parent="YSort"]
 position = Vector2( -38.2773, -35.0964 )
@@ -47,7 +48,7 @@ curve = SubResource( 3 )
 
 [node name="TargetPathFollow" type="PathFollow2D" parent="YSort/TargetPath"]
 position = Vector2( -226.162, 10.9049 )
-rotation = -1.56162
+rotation = -1.56287
 
 [node name="stun_noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

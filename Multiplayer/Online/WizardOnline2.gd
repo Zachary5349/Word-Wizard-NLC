@@ -12,8 +12,10 @@ var get_kb = true
 var kb_modifier = 0.5
 var hurt = false
 var cooldown = false
-var can_shoot = true
+var can_shoot = false
 var melee = false
+var shots = 0
+
 puppet var puppet_hp = 100 setget puppet_hp_set
 puppet var puppet_position = Vector2(0,0) setget puppet_position_set
 puppet var puppet_velocity = Vector2()
@@ -67,7 +69,8 @@ func _process(delta):
 		
 		$Sprite.look_at(get_global_mouse_position())
 		
-		if Input.is_action_pressed("shoot") and can_shoot and not cooldown:
+		if Input.is_action_pressed("shoot") and can_shoot and not cooldown and shots >= 1:
+			shots -= 1
 			rpc("instance_bullet", get_tree().get_network_unique_id())
 			cooldown = true
 			atk = true
