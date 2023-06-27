@@ -1149,7 +1149,7 @@ shape = SubResource( 25 )
 
 [node name="Wand" type="AnimatedSprite" parent="WandArea"]
 frames = SubResource( 26 )
-frame = 8
+frame = 11
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

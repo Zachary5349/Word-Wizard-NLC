@@ -70,6 +70,7 @@ func _process(delta):
 		$Sprite.look_at(get_global_mouse_position())
 		
 		if Input.is_action_pressed("shoot") and can_shoot and not cooldown and shots >= 1:
+			$shoot3.play()
 			shots -= 1
 			rpc("instance_bullet", get_tree().get_network_unique_id())
 			cooldown = true
@@ -79,6 +80,7 @@ func _process(delta):
 			$AnimatedSprite.flip_v = false
 			$Reload_timer.start()
 		if Input.is_action_pressed("melee1"):
+			$swing3.play()			
 			cooldown = true
 			melee = true
 			$AnimatedSprite.animation = "melee"
@@ -226,6 +228,7 @@ func _on_Hitbox_area_entered(area):
 			
 			
 sync func hit_by_damager(damage):
+	$hit.play()
 	hurt = true
 	hp -= damage
 #	print(get_parent().get_node("Sprite"))

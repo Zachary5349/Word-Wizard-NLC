@@ -68,6 +68,7 @@ func _process(delta):
 		$AnimatedSprite/Area2D.scale.x = -1
 
 func _damage(dmg):
+	$hit.play()
 	emit_signal("HealthUpdate", dmg)
 #	if move == false:
 #		get_parent()._hide()
@@ -81,6 +82,7 @@ func _damage(dmg):
 ##		global_position.y = lerp(global_position.y, knockback.y, 0.01)
 	
 func shoot(target_pos):
+	$shoot2.play()
 	var bullet = bulletPath.instance()
 	get_parent().add_child(bullet)
 	bullet.global_position = global_position
@@ -102,6 +104,7 @@ func _input(event):
 			atk = false
 			cooldown = false
 		elif event.is_action_pressed("melee2") && !cooldown:
+			$swing2.play()
 			cooldown = true
 			atk = true
 			$AnimatedSprite.animation = "melee"

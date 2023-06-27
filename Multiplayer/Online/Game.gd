@@ -13,12 +13,15 @@ var done = false
 signal turns_end
 
 func _ready():
-	get_tree().reload_current_scene()
+	
+#	get_tree().reload_current_scene()
 	if get_tree().network_peer != null:
 		if get_tree().get_network_connected_peers().size() >= 1 and get_tree().is_network_server():
 			turn1()
+			$AudioStreamPlayer.play()
 		else:
 			turn2()
+			$AudioStreamPlayer.play()
 	pass
 #	yield($turn1_timer, "timeout")
 #	print("timerrr")
@@ -154,6 +157,9 @@ func _on_turn2_timer_timeout():
 
 
 func _on_Game_turns_end():
+	for child in Persistent_Nodes.get_children():
+		if child.is_in_group("anim"):
+			child.play("healthbar")
 	$CanvasLayer/Label2.hide()
 	done = true
 	$CanvasLayer/ColorRect.hide()

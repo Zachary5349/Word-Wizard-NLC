@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/title/ctrls.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Controls.gd" type="Script" id=3]
 [ext_resource path="res://Assets/backb.png" type="Texture" id=4]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/title/mpctrls.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
+size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -15,9 +16,28 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFontData" id=16]
 font_path = "res://Assets/Fblapix-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=17]
-size = 50
+[sub_resource type="DynamicFont" id=26]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 38
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFontData" id=27]
+font_path = "res://Assets/Fblapix-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=28]
+size = 27
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 27 )
+
+[sub_resource type="StyleBoxEmpty" id=30]
 
 [sub_resource type="DynamicFont" id=22]
 size = 28
@@ -70,72 +90,120 @@ tracks/0/keys = {
 "values": [ Color( 1, 0.87451, 0, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=29]
+size = 57
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 16 )
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 642.0
+margin_bottom = 364.0
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 173.0
-margin_top = 86.0
-margin_right = 213.0
-margin_bottom = 107.0
+[node name="Label" type="Label" parent="Control"]
+margin_left = 145.0
+margin_top = 48.0
+margin_right = 185.0
+margin_bottom = 69.0
 custom_fonts/font = SubResource( 1 )
 text = "up"
 
-[node name="Label6" type="Label" parent="."]
-margin_left = 317.0
-margin_top = 147.0
-margin_right = 406.0
-margin_bottom = 168.0
+[node name="Label6" type="Label" parent="Control"]
+margin_left = 410.0
+margin_top = 198.0
+margin_right = 505.0
+margin_bottom = 219.0
 custom_fonts/font = SubResource( 1 )
-text = "click"
+text = "click "
 
-[node name="Label5" type="Label" parent="."]
+[node name="Label7" type="Label" parent="Control"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -144.0
-margin_top = 16.0
-margin_right = 144.0
-margin_bottom = 58.0
+anchor_bottom = 0.5
+margin_left = 265.0
+margin_top = 257.5
+margin_right = 483.0
+margin_bottom = 295.5
+custom_fonts/font = SubResource( 26 )
+text = "space"
+
+[node name="Label5" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 212.0
+margin_top = 26.5
+margin_right = 430.0
+margin_bottom = 64.5
 custom_fonts/font = SubResource( 17 )
 text = "controls"
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 82.0
-margin_top = 280.0
-margin_right = 154.0
-margin_bottom = 301.0
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 51.0
+margin_top = 237.0
+margin_right = 123.0
+margin_bottom = 258.0
 custom_fonts/font = SubResource( 1 )
 text = "left"
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 245.0
-margin_top = 280.0
-margin_right = 335.0
-margin_bottom = 301.0
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 214.0
+margin_top = 237.0
+margin_right = 304.0
+margin_bottom = 258.0
 custom_fonts/font = SubResource( 1 )
 text = "right"
 
-[node name="Label4" type="Label" parent="."]
-margin_left = 164.0
-margin_top = 280.0
-margin_right = 236.0
-margin_bottom = 301.0
+[node name="Label4" type="Label" parent="Control"]
+margin_left = 133.0
+margin_top = 237.0
+margin_right = 205.0
+margin_bottom = 258.0
 custom_fonts/font = SubResource( 1 )
 text = "down"
 
-[node name="click" type="AudioStreamPlayer" parent="."]
+[node name="Label8" type="Label" parent="Control"]
+margin_left = 303.0
+margin_top = 327.0
+margin_right = 393.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 1 )
+text = "pause"
+
+[node name="Button2" type="Button" parent="Control"]
+margin_left = 440.0
+margin_top = 333.0
+margin_right = 665.0
+margin_bottom = 362.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.768627, 0.768627, 0.768627, 1 )
+custom_fonts/font = SubResource( 28 )
+custom_styles/focus = SubResource( 30 )
+text = "Multiplayer"
+flat = true
+
+[node name="click" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource( 5 )
 volume_db = -30.0
 
-[node name="back" type="Button" parent="."]
-modulate = Color( 1, 0.87451, 0, 1 )
+[node name="back" type="Button" parent="Control"]
 margin_left = 13.0
 margin_top = 312.0
 margin_right = 123.0
@@ -148,12 +216,303 @@ icon = ExtResource( 4 )
 flat = true
 expand_icon = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="back"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/back"]
 anims/RESET = SubResource( 25 )
 anims/backd = SubResource( 23 )
 anims/backhover = SubResource( 24 )
 
-[connection signal="button_down" from="back" to="." method="_on_back_button_down"]
-[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
-[connection signal="mouse_exited" from="back" to="." method="_on_back_mouse_exited"]
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[node name="Control2" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect2" type="TextureRect" parent="Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 642.0
+margin_bottom = 364.0
+texture = ExtResource( 6 )
+
+[node name="Label7" type="Label" parent="Control2"]
+margin_left = 128.0
+margin_top = 62.0
+margin_right = 168.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 1 )
+text = "up"
+
+[node name="Label15" type="Label" parent="Control2"]
+margin_left = 262.0
+margin_top = 62.0
+margin_right = 346.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 1 )
+text = "shoot"
+
+[node name="Label18" type="Label" parent="Control2"]
+margin_left = 180.0
+margin_top = 63.0
+margin_right = 264.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 1 )
+text = "melee"
+
+[node name="Label16" type="Label" parent="Control2"]
+margin_left = 566.0
+margin_top = 124.0
+margin_right = 650.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 1 )
+text = "shoot"
+
+[node name="Label17" type="Label" parent="Control2"]
+margin_left = 487.0
+margin_top = 124.0
+margin_right = 572.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 1 )
+text = "melee"
+
+[node name="Label9" type="Label" parent="Control2"]
+margin_left = 49.0
+margin_top = 244.0
+margin_right = 121.0
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 1 )
+text = "left"
+
+[node name="Label10" type="Label" parent="Control2"]
+margin_left = 204.0
+margin_top = 244.0
+margin_right = 294.0
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 1 )
+text = "right"
+
+[node name="Label11" type="Label" parent="Control2"]
+margin_left = 126.0
+margin_top = 244.0
+margin_right = 198.0
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 1 )
+text = "down"
+
+[node name="Label8" type="Label" parent="Control2"]
+margin_left = 437.0
+margin_top = 124.0
+margin_right = 477.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 1 )
+text = "up"
+
+[node name="Label12" type="Label" parent="Control2"]
+margin_left = 354.0
+margin_top = 303.0
+margin_right = 426.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+text = "left"
+
+[node name="Label13" type="Label" parent="Control2"]
+margin_left = 509.0
+margin_top = 303.0
+margin_right = 599.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+text = "right"
+
+[node name="Label19" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -291.0
+margin_top = -83.5
+margin_right = -73.0
+margin_bottom = -45.5
+custom_fonts/font = SubResource( 17 )
+text = "p1"
+
+[node name="Label14" type="Label" parent="Control2"]
+margin_left = 431.0
+margin_top = 303.0
+margin_right = 503.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+text = "down"
+
+[node name="Label21" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.0
+margin_top = -98.5
+margin_bottom = -50.5
+custom_fonts/font = SubResource( 29 )
+text = "w "
+
+[node name="Label22" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = -98.5
+margin_right = 75.0
+margin_bottom = -50.5
+custom_fonts/font = SubResource( 29 )
+text = "e"
+
+[node name="Label23" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -69.0
+margin_top = -100.5
+margin_right = 149.0
+margin_bottom = -52.5
+custom_fonts/font = SubResource( 29 )
+text = "r"
+
+[node name="Label24" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.0
+margin_top = -24.5
+margin_right = -64.0
+margin_bottom = 23.5
+custom_fonts/font = SubResource( 29 )
+text = "a"
+
+[node name="Label25" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.0
+margin_top = -24.5
+margin_right = 11.0
+margin_bottom = 23.5
+custom_fonts/font = SubResource( 29 )
+text = "s"
+
+[node name="Label26" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -26.5
+margin_right = 85.0
+margin_bottom = 21.5
+custom_fonts/font = SubResource( 29 )
+text = "d"
+
+[node name="Label27" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 90.0
+margin_top = -36.5
+margin_right = 308.0
+margin_bottom = 11.5
+custom_fonts/font = SubResource( 29 )
+text = "i"
+
+[node name="Label28" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 165.0
+margin_top = -36.5
+margin_right = 383.0
+margin_bottom = 11.5
+custom_fonts/font = SubResource( 29 )
+text = "o"
+
+[node name="Label29" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 239.0
+margin_top = -38.5
+margin_right = 457.0
+margin_bottom = 9.5
+custom_fonts/font = SubResource( 29 )
+text = "p"
+
+[node name="Label30" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 26.0
+margin_top = 37.5
+margin_right = 244.0
+margin_bottom = 85.5
+custom_fonts/font = SubResource( 29 )
+text = "j"
+
+[node name="Label31" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 101.0
+margin_top = 37.5
+margin_right = 319.0
+margin_bottom = 85.5
+custom_fonts/font = SubResource( 29 )
+text = "k"
+
+[node name="Label32" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 175.0
+margin_top = 35.5
+margin_right = 393.0
+margin_bottom = 83.5
+custom_fonts/font = SubResource( 29 )
+text = "l"
+
+[node name="Label20" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 245.0
+margin_top = 45.5
+margin_right = 463.0
+margin_bottom = 83.5
+custom_fonts/font = SubResource( 17 )
+text = "p2"
+
+[node name="Button" type="Button" parent="Control2"]
+margin_left = 26.0
+margin_top = 333.0
+margin_right = 113.0
+margin_bottom = 362.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.87451, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.768627, 0.768627, 0.768627, 1 )
+custom_constants/hseparation = 0
+custom_fonts/font = SubResource( 28 )
+custom_styles/focus = SubResource( 31 )
+text = "back"
+flat = true
+
+[connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="button_down" from="Control/back" to="." method="_on_back_button_down"]
+[connection signal="mouse_entered" from="Control/back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Control/back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control2/Button" to="." method="_on_Button_pressed"]

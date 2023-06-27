@@ -51,7 +51,6 @@ script = ExtResource( 1 )
 scale = Vector2( 2.31187, 1.96163 )
 frames = SubResource( 6 )
 animation = "fireball"
-frame = 3
 playing = true
 
 [node name="CPUParticles2D9" type="CPUParticles2D" parent="AnimatedSprite"]

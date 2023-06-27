@@ -92,6 +92,7 @@ func _on_play_pressed():
 	$CanvasLayer/instructions.visible = false
 	$AnimationPlayer.play("one")
 	yield($AnimationPlayer, "animation_finished")
+	$AudioStreamPlayer.play()
 	p_turn = 1
 	_turn()
 	yield(self, "turn_end")

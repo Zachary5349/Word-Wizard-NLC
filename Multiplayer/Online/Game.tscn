@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/backb.png" type="Texture" id=2]
 [ext_resource path="res://Assets/letters/slash.png" type="Texture" id=3]
 [ext_resource path="res://Multiplayer/arena.png" type="Texture" id=4]
 [ext_resource path="res://Multiplayer/Online/Game.gd" type="Script" id=5]
+[ext_resource path="res://Music/music_zapsplat_game_music_quiz_puzzle_tension_electronic_arpeggio_003.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/Input.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=13]
 
@@ -79,6 +80,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.760784 ) ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "backd"
@@ -110,6 +123,22 @@ tracks/0/keys = {
 "values": [ Color( 1, 0.87451, 0, 1 ) ]
 }
 
+[sub_resource type="Animation" id=30]
+resource_name = "online"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.760784 ), Color( 0, 0, 0, 0 ) ]
+}
+
 [node name="Game" type="Node2D"]
 z_index = -1
 script = ExtResource( 5 )
@@ -119,7 +148,7 @@ margin_left = -798.0
 margin_top = -622.0
 margin_right = 1594.0
 margin_bottom = 1151.0
-color = Color( 0.0627451, 0, 0.0235294, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 684.0
@@ -250,6 +279,8 @@ align = 3
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
 color = Color( 0, 0, 0, 0.760784 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -351,6 +382,7 @@ expand_icon = true
 anims/RESET = SubResource( 25 )
 anims/backd = SubResource( 28 )
 anims/backhover = SubResource( 29 )
+anims/online = SubResource( 30 )
 
 [node name="Input1" parent="CanvasLayer" instance=ExtResource( 8 )]
 visible = false
@@ -385,6 +417,11 @@ one_shot = true
 [node name="turn2_timer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -28.0
+autoplay = true
 
 [connection signal="turns_end" from="." to="." method="_on_Game_turns_end"]
 [connection signal="timeout" from="turn1_timer" to="." method="_on_turn1_timer_timeout"]

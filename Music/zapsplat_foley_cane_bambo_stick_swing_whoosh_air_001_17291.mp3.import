@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_foley_cane_bambo_stick_swing_whoosh_air_001_17291.mp3-ecdb41f313e24d8b8e30b95febdb1b65.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_foley_cane_bambo_stick_swing_whoosh_air_001_17291.mp3"
+dest_files=[ "res://.import/zapsplat_foley_cane_bambo_stick_swing_whoosh_air_001_17291.mp3-ecdb41f313e24d8b8e30b95febdb1b65.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

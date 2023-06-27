@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Multiplayer/player2_ani/playerbackrun1.png" type="Texture" id=1]
 [ext_resource path="res://Multiplayer/player2_atk_ani/9.png" type="Texture" id=2]
@@ -43,6 +43,9 @@
 [ext_resource path="res://Pause & Death/DeathAnim/1.png" type="Texture" id=41]
 [ext_resource path="res://Pause & Death/DeathAnim/3.png" type="Texture" id=42]
 [ext_resource path="res://Multiplayer/Online/P1AnimatedSprite.gd" type="Script" id=43]
+[ext_resource path="res://Music/zapsplat_foley_umbrella_collapsed_swipe_hit_person_002_82656.mp3" type="AudioStream" id=44]
+[ext_resource path="res://Music/zapsplat_multimedia_game_sound_fun_magic_game_positive_event_notification_002_61005.mp3" type="AudioStream" id=45]
+[ext_resource path="res://Music/zapsplat_foley_cane_bambo_stick_swing_whoosh_air_001_17291.mp3" type="AudioStream" id=46]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 8.0
@@ -148,6 +151,19 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, -1 )
 shape = SubResource( 4 )
+
+[node name="hit2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 44 )
+
+[node name="shoot1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -83, -197 )
+stream = ExtResource( 45 )
+volume_db = -20.0
+
+[node name="swing1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -83, -197 )
+stream = ExtResource( 46 )
+volume_db = -20.0
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="AnimatedSprite/Area2D" to="." method="_on_Area2D_body_entered"]
