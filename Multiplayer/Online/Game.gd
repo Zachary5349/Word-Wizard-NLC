@@ -13,6 +13,7 @@ var done = false
 signal turns_end
 
 func _ready():
+	get_tree().reload_current_scene()
 	if get_tree().network_peer != null:
 		if get_tree().get_network_connected_peers().size() >= 1 and get_tree().is_network_server():
 			turn1()
@@ -136,7 +137,7 @@ func _process(delta):
 							$CanvasLayer/Label.text = "You lost!"
 							
 				yield(get_tree().create_timer(3), "timeout")
-				get_tree().change_scene("res://Multiplayer/Arena.tscn")
+				get_tree().change_scene("res://Scenes/Title Screen.tscn")
 		
 					
 func _player_disconnected(id) -> void:
