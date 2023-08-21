@@ -1,7 +1,7 @@
 extends Control
 
 # word list
-onready var file = 'res://words_alpha.txt' # .txt file hlding english words
+#onready var file = 'res://words_alpha.txt' # .txt file hlding english words
 
 var file_list = Array()
 var found = false
@@ -13,7 +13,7 @@ signal word_found # signal for when the word is entered and valid
 
 func _ready() -> void: # when the program starts, the sorting happens, so there isn't a significant drop on in-game performance because of this method processing
 	var f = File.new()
-	f.open(file, File.READ)
+	f.open('res://words_alpha.txt', File.READ)
 	# iterate through all lines until the end of file
 	while not f.eof_reached():
 		var line = f.get_line() # get the next line in the file

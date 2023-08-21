@@ -1,6 +1,6 @@
 extends Control
 
-
+#var ocean = preload("res://Scenes/Ocean.tscn")
 func ready():
 	$AnimationPlayer.play("RESET")
 	Master.mode = "select"

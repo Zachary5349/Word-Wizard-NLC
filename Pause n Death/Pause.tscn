@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fblapix-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Pause & Death/Pause.gd" type="Script" id=2]
+[ext_resource path="res://Pause n Death/Pause.gd" type="Script" id=2]
 [ext_resource path="res://Music/zapsplat_office_calculator_button_press_single_002_11984.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Controls.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/title/box.png" type="Texture" id=5]

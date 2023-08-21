@@ -67,7 +67,7 @@ func _process(_delta):
 	if $CanvasLayer/SFX.died == true:
 		yield(get_tree().create_timer(1), "timeout")
 		$CanvasLayer/SFX.died = false
-		get_tree().change_scene("res://Pause & Death/Death.tscn")
+		get_tree().change_scene("res://Pause n Death/Death.tscn")
 #		$CanvasLayer/AnimationPlayer.play("RESET")
 #		$Kraken.follow = false
 #	if $Kraken.follow != true:

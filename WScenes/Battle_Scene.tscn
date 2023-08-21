@@ -13,7 +13,7 @@
 [ext_resource path="res://WScenes/Input.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Music/zapsplat_nature_earthquake_rumble_rocks_movement_landslide_48251.mp3" type="AudioStream" id=12]
 [ext_resource path="res://WScenes/Worm_cam.gd" type="Script" id=13]
-[ext_resource path="res://Pause & Death/Pause.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Pause n Death/Pause.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )

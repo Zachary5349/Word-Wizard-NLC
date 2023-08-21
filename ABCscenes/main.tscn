@@ -29,7 +29,7 @@
 [ext_resource path="res://ABCassets/phase2/1.png" type="Texture" id=27]
 [ext_resource path="res://Music/music_orlamusic_Epic+001.mp3" type="AudioStream" id=28]
 [ext_resource path="res://Music/music_orlamusic_Epic+010.mp3" type="AudioStream" id=29]
-[ext_resource path="res://Pause & Death/Pause.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Pause n Death/Pause.tscn" type="PackedScene" id=30]
 
 [sub_resource type="Curve2D" id=36]
 _data = {

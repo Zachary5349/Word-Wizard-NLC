@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/backb.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Credits.gd" type="Script" id=4]
 
-
 [sub_resource type="StreamTexture" id=20]
 load_path = "res://.import/bg.png-b89c68ec9823b70820791d7ccb9439df.stex"
 
@@ -102,7 +101,7 @@ all assets created and owned by ww team
 Sound effects obtained from https://www.zapsplat.com
 
 
-Word wizard v1.0.0 fbla slc 2023"
+Word wizard v1.0.0 2023"
 align = 1
 valign = 1
 autowrap = true

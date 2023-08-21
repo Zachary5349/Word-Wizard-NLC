@@ -242,7 +242,7 @@ func playerHit():
 	if health_bar.value<= 25:
 #		game_over()
 		yield(get_tree().create_timer(1), "timeout")
-		get_tree().change_scene("res://Pause & Death/Death.tscn")
+		get_tree().change_scene("res://Pause n Death/Death.tscn")
 
 
 func game_over():

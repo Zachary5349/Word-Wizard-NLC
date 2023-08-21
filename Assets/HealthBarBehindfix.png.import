@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HealthBarBehind.png-f95e5e1fef0d15efac0fced872af53cb.stex"
+path="res://.import/HealthBarBehindfix.png-9cf5290307e7f0c4618f26f88edf7c2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HealthBarBehind.png"
-dest_files=[ "res://.import/HealthBarBehind.png-f95e5e1fef0d15efac0fced872af53cb.stex" ]
+source_file="res://Assets/HealthBarBehindfix.png"
+dest_files=[ "res://.import/HealthBarBehindfix.png-9cf5290307e7f0c4618f26f88edf7c2d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

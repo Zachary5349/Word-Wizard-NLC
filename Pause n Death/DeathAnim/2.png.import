@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/11.png-1a56c6d34cf9f1d074b4fe6414d74dd1.stex"
+path="res://.import/2.png-7aef13fb189ef5d25d545b69f48dbe14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pause & Death/DeathAnim/11.png"
-dest_files=[ "res://.import/11.png-1a56c6d34cf9f1d074b4fe6414d74dd1.stex" ]
+source_file="res://Pause n Death/DeathAnim/2.png"
+dest_files=[ "res://.import/2.png-7aef13fb189ef5d25d545b69f48dbe14.stex" ]
 
 [params]
 
