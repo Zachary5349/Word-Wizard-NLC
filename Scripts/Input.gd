@@ -7,6 +7,7 @@ var file_list = Array()
 var found = false
 var process = true
 
+var used_list = []
 var template_let_slot = preload("res://Scenes/LetterSlot.tscn")
 
 signal word_found # signal for when the word is entered and valid
@@ -104,13 +105,17 @@ func _end(turn):
 
 func _on_LineEdit_text_entered(new_text):
 	if new_text.length() == $LineEdit.max_length: # make sure that it the right size
-		if file_list.has(new_text.to_lower()): # check if word is valid
-			found = true
+		if !used_list.has(new_text) || Master.current != "kraken":
+			if file_list.has(new_text.to_lower()): # check if word is valid
+				found = true
+		else:
+			$Label2.text = "You already used that!"
 	if found == true:
 #		print(new_text)
 		$correct.play()
 		emit_signal("word_found") # signal for when the word is found 
 		found = false
+		yield(get_tree().create_timer(1), "timeout")
 	else:
 		$AnimationPlayer.play("shake") # shake ui
 		print($AnimationPlayer.current_animation)

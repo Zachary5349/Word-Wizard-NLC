@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_sound_negative_big_lose_buzz_with_descending_fail_tone_78340.mp3-ba464b9d5a3888179e58d6665928b864.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_multimedia_game_sound_negative_big_lose_buzz_with_descending_fail_tone_78340.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_sound_negative_big_lose_buzz_with_descending_fail_tone_78340.mp3-ba464b9d5a3888179e58d6665928b864.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

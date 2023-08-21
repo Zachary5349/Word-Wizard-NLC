@@ -436,9 +436,9 @@ func _on_Animation2Button2_pressed():
 	 $Cutscene/Dragon2.visible = false
 	 $background2.visible = false
 	 $background1.visible = true
-	 $CanvasLayer/Health.visible = true
-	 $CanvasLayer/HealthConstant.visible = true
-	 $CanvasLayer/HealthChange.visible = true
+#	 $CanvasLayer/Health.visible = true
+#	 $CanvasLayer/HealthConstant.visible = true
+#	 $CanvasLayer/HealthChange.visible = true
 	 $CanvasLayer/EneminesKilled.visible = true
 	 $CanvasLayer/Constant.visible = false
 	 $CanvasLayer/KilledChange.visible = false

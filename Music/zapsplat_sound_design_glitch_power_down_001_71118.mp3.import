@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_sound_design_glitch_power_down_001_71118.mp3-1d69dcbde5658b4267f7db8437d990e0.mp3str"
+
+[deps]
+
+source_file="res://Music/zapsplat_sound_design_glitch_power_down_001_71118.mp3"
+dest_files=[ "res://.import/zapsplat_sound_design_glitch_power_down_001_71118.mp3-1d69dcbde5658b4267f7db8437d990e0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
