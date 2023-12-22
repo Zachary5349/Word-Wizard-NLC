@@ -14,6 +14,7 @@ Word Wizard is a linear story-based 2D pixel game where you use words to get thr
 
 Play the local multiplayer game mode to battle a friend! Also, check the leaderboard and compete for the fastest story-mode run
 
+Note - The game still has a few bugs, notably at the dragon level. It may crash after being hit by several fireballs at once.
 ## Assets
 All art assets were created by Siddhartha Venkatayogi and owned by the Word Wizard Team
 
