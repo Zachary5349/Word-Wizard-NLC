@@ -9,7 +9,7 @@ var plank_tile = Vector2() # player's selected plank tile
 var player_tile = Vector2() # tile the player is standing on
 var player_tile_id = 0 # id of tile the player is standing on
 var player_pos = Vector2() # tracks player position
-
+var kraken_pos = Vector2()
 var x_dist = 0
 var y_dist = 0
 var dist = 0 
@@ -64,6 +64,7 @@ func _ready():
 
 
 func _process(_delta):
+	kraken_pos = $Kraken.global_position
 	if $CanvasLayer/SFX.died == true:
 		yield(get_tree().create_timer(1), "timeout")
 		$CanvasLayer/SFX.died = false
@@ -129,6 +130,7 @@ func _input(event: InputEvent): # click/esc handler function
 				$CanvasLayer/BlackBar2.visible = true
 				$ColorRect.visible = true
 				$CanvasLayer/AnimationPlayer.play("intro") # play first cutscene anim
+				$CanvasLayer/Label.percent_visible = 0
 				$CanvasLayer/Label.text = "And your energy wand is across the water!"
 			elif cut_scene == 1:
 				$CanvasLayer/AnimationPlayer.play("back")
@@ -228,7 +230,7 @@ func _input(event: InputEvent): # click/esc handler function
 				grass4.fps = 2 # slow down speed of tile animations
 				
 
-	if event.is_action_pressed("escape"):  # escape interface
+	if event.is_action_pressed("ui_focus_next"):  # escape interface
 		_hide_input()
 
 

@@ -155,6 +155,25 @@ func _unhandled_input(event: InputEvent) -> void:
 							
 					else:
 						if  enemies_killed >= 7:
+							health_bar.hide()
+							difficulty_bar.hide()
+							spawn_timer.stop()
+							difficulty_timer.stop()
+							active_enemy = null
+							for enemy in $path1.get_children():
+								enemy.queue_free()
+							for enemy in $path2.get_children():
+								enemy.queue_free()
+							for enemy in $path3.get_children():
+								enemy.queue_free()
+							for enemy in $path4.get_children():
+								enemy.queue_free()
+							for enemy in $path5.get_children():
+								enemy.queue_free()
+#							for enemy in valid_enemies:
+#								enemy.queue_free()
+							enemies.clear()
+							valid_enemies.clear()
 							$CanvasLayer/Animation1.play("end")
 							if Master.mode == "story":
 								get_tree().change_scene("res://Scenes/end fire.tscn")
@@ -347,11 +366,6 @@ func _on_RestartButton_pressed() -> void:
 	start_game()
 
 
-	pass # Replace with function body.
-
-
-
-
 func _on_Difficultytimer_timeout():
 	if stagetimer == 1:
 		if difficulty < 7:
@@ -482,7 +496,6 @@ func _on_path5_child_entered_tree(node):
 
 
 func _on_Animation1Button_pressed():
-	 print("popaosd")
 	 start_game()
 	 health_bar.show()
 	 difficulty_bar.show()

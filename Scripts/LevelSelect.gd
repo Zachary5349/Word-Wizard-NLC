@@ -25,11 +25,13 @@ func _on_drag_mouse_exited():
 
 func _on_wor_pressed():
 	$start.play()
+	Master.current = "worm"
 	yield(get_tree().create_timer(1.15), "timeout")
 	get_tree().change_scene("res://WScenes/Battle_Scene.tscn")
 
 func _on_Kr_pressed():
 	$start.play()
+	Master.current = "kraken"
 	yield(get_tree().create_timer(1.15), "timeout")
 	get_tree().change_scene("res://Scenes/Ocean.tscn")
 
@@ -53,5 +55,6 @@ func _on_back_button_down():
 
 func _on_drag_pressed():
 	$start.play()
+	Master.current = "dragon"
 	yield(get_tree().create_timer(1.15), "timeout")
 	get_tree().change_scene("res://ABCscenes/main.tscn")

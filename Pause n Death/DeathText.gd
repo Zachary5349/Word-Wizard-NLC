@@ -17,7 +17,7 @@ func _ready():
 		elif rand <= 2.0/3.0:
 			text = "Try to find the best path to easily dodge the water blast!"
 		else:
-			text = "Reuse words if you can! Theres no shame in doing so!"
+			text = "Think of words quickly to avoid sinking!"
 	
 	if Master.current == "dragon":
 		if rand <= 1.0/3.0:

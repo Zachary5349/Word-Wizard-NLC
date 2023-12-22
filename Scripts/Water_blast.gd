@@ -2,8 +2,13 @@ extends Area2D
 
 var hit = false
 signal HealthUpdate(attack_damage)
+var pos = Vector2.ZERO
 
+func _ready():
+	pos = get_parent().kraken_pos
+	position.x = pos.x
 func _process(delta):
+	position.x = pos.x
 	if hit == false:
 		position.y += 3 * get_parent().slow_scale
 	else:

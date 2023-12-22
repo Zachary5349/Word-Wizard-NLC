@@ -21,8 +21,8 @@ func _physics_process(delta):
 			$AnimatedSprite.animation = "shoot"
 			yield($AnimatedSprite, "animation_finished")
 
-			blast_instance.global_position.x = global_position.x
-			blast_instance.global_position.y = global_position.y + 30
+			blast_instance.global_position.x = self.global_position.x
+			blast_instance.global_position.y = self.global_position.y + 30
 			get_parent().add_child(blast_instance)
 			$AnimatedSprite.animation = "shoot_final"
 			$AnimatedSprite.animation = "default"

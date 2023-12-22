@@ -20,6 +20,8 @@ func _ready() -> void: # when the program starts, the sorting happens, so there 
 		var line = f.get_line() # get the next line in the file
 		file_list.append(line) # put the .txt file into an accessable array
 	f.close()
+	if Master.current == "kraken":
+		$Label5.show()
 
 
 func _process(delta):
@@ -87,13 +89,11 @@ func _hide():
 	if visible == true:
 		visible = false 
 		process = false
-		print("done")
 		for x in $LineEdit.max_length+2:
 			get_node("MarginContainer/HBoxContainer/Let" + str(x+1)).queue_free() 
 		$LineEdit.clear() # clear input
 
 func _end(turn):
-	print("dskjfsdfhbh")
 	if visible == true:
 		emit_signal("word_found")
 		_hide()
@@ -105,9 +105,10 @@ func _end(turn):
 
 func _on_LineEdit_text_entered(new_text):
 	if new_text.length() == $LineEdit.max_length: # make sure that it the right size
-		if !used_list.has(new_text) || Master.current != "kraken":
+		if !used_list.has(new_text.to_lower()) || Master.current != "kraken":
 			if file_list.has(new_text.to_lower()): # check if word is valid
 				found = true
+				used_list.append(new_text.to_lower())
 		else:
 			$Label2.text = "You already used that!"
 	if found == true:
@@ -115,11 +116,13 @@ func _on_LineEdit_text_entered(new_text):
 		$correct.play()
 		emit_signal("word_found") # signal for when the word is found 
 		found = false
-		yield(get_tree().create_timer(1), "timeout")
+#		yield(get_tree().create_timer(1), "timeout")
 	else:
-		$AnimationPlayer.play("shake") # shake ui
-		print($AnimationPlayer.current_animation)
+		$AnimationPlayer.play("shake 2") # shake ui
 		$wrong.play()
+		yield($AnimationPlayer, "animation_finished")
+		$Label2.text = "Type your word!"
+		
 
 
 func _on_LineEdit_text_changed(_new_text):
