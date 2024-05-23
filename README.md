@@ -1,6 +1,6 @@
 # Word Wizard
 
-Word Wizard is a 2D word puzzle game made for the FBLA Computer Game and Simulation Programming competition.
+Word Wizard is a 2D word puzzle game made for the FBLA Computer Game and Simulation Programming competition. We placed 3rd in Texas for it.
 
 Created by - Siddhartha Venkatayogi, Ihsan Khawaja, and Zachary Jason Wright
 
